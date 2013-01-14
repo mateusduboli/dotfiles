@@ -9,3 +9,5 @@ filetype plugin on
 set tabstop=4
 set shiftwidth=4
 set nobackup
+au BufNewFile,BufRead *.dat set filetype=ampl
+au BufNewFile,BufRead *.mod set filetype=ampl
