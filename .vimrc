@@ -1,13 +1,45 @@
-set mouse=a
-set number
+"""""""""""""""""""""""""""""""""""""""""
+"	Mateus's VIMrc file
+"""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""
+"	=>	User interface	
+"""""""""""""""""""""""""""""""""""""""""
+
+"	=>	Turn on wild menu
+set wildmenu
+
+"	=>	Always show current position
 set ruler
-syn on
-syntax on
-filetype indent on
-set backspace=indent,eol,start
-filetype plugin on
-set tabstop=4
+
+"""""""""""""""""""""""""""""""""""""""""
+"	=>	Style settings
+"""""""""""""""""""""""""""""""""""""""""
+
+"	=>	Color scheme
+colorscheme wombat
+set background=dark
+
+"	=>	Tab settings	
+set smarttab
 set shiftwidth=4
+set tabstop=4
+
+"	=>	Linebreak on 500 characters
+set lbr
+set tw=500
+
+"	=> Line numbers
+set number
+
+"""""""""""""""""""""""""""""""""""""""""
+"	=>	Files, backup and ignores
+"""""""""""""""""""""""""""""""""""""""""
+
+"	=>	Ignore compiled files
+set wildignore=*.o,*~,*.pyc
+
+"	=> No backup
 set nobackup
-au BufNewFile,BufRead *.dat set filetype=ampl
-au BufNewFile,BufRead *.mod set filetype=ampl
+set nowb
+set noswapfile
