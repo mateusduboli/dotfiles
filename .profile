@@ -57,6 +57,12 @@ if [ -d "/usr/lib/jvm/java-7-oracle/" ]; then
 	export JAVA_HOME
 fi
 
+# Eclipse Home
+if [ -d "$PROGRAMS/eclipse/" ]; then
+	ECLIPSE_HOME="$PROGRAMS/eclipse/"
+	export ECLIPSE_HOME
+fi
+
 # Catalina Home
 if [ -d "$PROGRAMS/apache-tomcat-7.0.35" ]; then
 	CATALINA_HOME="$PROGRAMS/apache-tomcat-7.0.35"
@@ -64,14 +70,12 @@ if [ -d "$PROGRAMS/apache-tomcat-7.0.35" ]; then
 fi
 
 # SystemC Include
-
 if [ -d "$PROGRAMS/systemc-2.3.0" ]; then
 	SYSTEMC="$PROGRAMS/systemc-2.3.0"
 	export SYSTEMC
 fi
 
 # Jason Home
-
 if [ -d "$PROGRAMS/jason-1.3.9" ]; then
 	JASON_HOME="$PROGRAMS/jason-1.3.9"
 	export JASON_HOME
