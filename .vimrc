@@ -17,7 +17,6 @@ set ruler
 """""""""""""""""""""""""""""""""""""""""
 
 "	=>	Color scheme
-colorscheme wombat
 set background=dark
 
 "	=> Syntax highlighting
