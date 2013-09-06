@@ -17,6 +17,7 @@ set ruler
 """""""""""""""""""""""""""""""""""""""""
 
 "	=>	Color scheme
+colorscheme elflord
 set background=dark
 
 "	=> Syntax highlighting

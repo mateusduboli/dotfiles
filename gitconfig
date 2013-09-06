@@ -1,0 +1,7 @@
+[user]
+	email = mateusduboli@gmail.com
+	name = Mateus Dubiela Oliveira
+[core]
+	editor = vim
+[color]
+	ui = true
