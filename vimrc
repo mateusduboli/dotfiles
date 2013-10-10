@@ -2,12 +2,21 @@
 "	Mateus's VIMrc file
 """""""""""""""""""""""""""""""""""""""""
 
+set nocompatible
+
+"""""""""""""""""""""""""""""""""""""""""
+"	=>	Scripts
+"""""""""""""""""""""""""""""""""""""""""
+"	=> Load Vim Bundles
+source ~/.vim/scripts/vundles.vim
+"	=> Base configuration for all languages
+source ~/.vim/scripts/base.vim
+"	=> Scala settings
+source ~/.vim/scripts/scala.vim
+
 """""""""""""""""""""""""""""""""""""""""
 "	=>	User interface	
 """""""""""""""""""""""""""""""""""""""""
-
-"	=>	Turn on wild menu
-set wildmenu
 
 "	=>	Always show current position
 set ruler
@@ -16,8 +25,11 @@ set ruler
 "	=>	Style settings
 """""""""""""""""""""""""""""""""""""""""
 
+"	=> Omnicompletition
+set omnifunc=syntaxcomplete#Complete
+
 "	=>	Color scheme
-colorscheme elflord
+colorscheme wombat
 set background=dark
 
 "	=> Syntax highlighting
@@ -31,9 +43,6 @@ set tabstop=4
 "	=>	Linebreak on 500 characters
 set lbr
 set tw=500
-
-"	=> Line numbers
-set number
 
 "	=> Set Backspace over indent, lines and start
 set backspace=indent,eol,start
@@ -59,3 +68,6 @@ filetype plugin on
 
 "	=> Set auto indent on start
 filetype indent on
+
+"	=>	KeyboadShortcuts
+source ~/.vim/scripts/keymap.vim

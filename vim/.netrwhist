@@ -1,9 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/mateus/Workspace/AMPL/AMPL_Book'
-let g:netrw_dirhist_2='/usr/share/gtg/GTG/plugins/evolution_sync'
-let g:netrw_dirhist_3='/home/mateus/Workspace/AMPL/pumpoff'
-let g:netrw_dirhist_4='/home/mateus/Workspace/Python/ifac/templates'
-let g:netrw_dirhist_5='/home/mateus/Workspace'
-let g:netrw_dirhist_6='/home/mateus/Repositories/LACI/pumpoff/code/tags/modelo-1.3'
-let g:netrw_dirhist_7='/home/mateus/Repositories/LACI/pumpoff/code/tags/modelo-1.2'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/Users/mateus/.vim'
