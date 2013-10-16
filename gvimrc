@@ -8,8 +8,12 @@
 "	=> Window Configurations
 """""""""""""""""""""""""""""""""""""""""
 
-set guifont=Sauce\ Code\ Powerline\ Semibold:h12
-set columns=210
-set guioptions-=mTRL
-set fullscreen
-
+set guioptions=
+"	=> Is macvim?
+if has("gui_macvim")
+	set fullscreen
+	set guifont=Sauce\ Code\ Powerline\ Semibold:h12
+"	=> Is gVim?
+elseif has("gui_gtk2")
+	set guifont=Source\ Code\ Pro\ Medium\ 12
+endif

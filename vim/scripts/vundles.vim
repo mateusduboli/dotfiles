@@ -15,10 +15,17 @@ call vundle#rc()
 "	=> Vundle Bundle
 Bundle 'gmarik/vundle'
 
+"	=> Colortheme
 Bundle 'Wombat'
+"	=> Directory browser
 Bundle 'The-NERD-tree' 
+"	=> Shell inside vim
 Bundle 'Conque-Shell'
+"	=> Surround caracters utilities
 Bundle 'surround.vim'
-
-nmap <F4> :NERDTree<CR>
-nmap <F3> <c-w>f <c-w>l
+"	=> Enhanced Status Bar
+Bundle 'bling/vim-airline'
+"	=> Vim Outline
+Bundle 'Tagbar'
+"	=> Git repository manager
+Bundle 'fugitive.vim'

@@ -8,3 +8,7 @@ set wildmode=longest:list
 
 "	=> Show current command
 set showcmd
+"	=> Hide current mode
+set noshowmode
+"	=> Always show status bar
+set laststatus=2
