@@ -12,7 +12,7 @@ source ~/.vim/scripts/vundles.vim
 "	=> Base configuration for all languages
 source ~/.vim/scripts/base.vim
 "	=> Scala settings
-source ~/.vim/scripts/scala.vim
+autocmd FileType scala source ~/.vim/scripts/scala.vim
 
 """""""""""""""""""""""""""""""""""""""""
 "	=>	User interface	
@@ -59,9 +59,6 @@ set nobackup
 set nowb
 set noswapfile
 
-"	=> AMPL file associations
-au BufNewFile,BufRead *.dat set filetype=ampl
-au BufNewFile,BufRead *.mod set filetype=ampl
 
 "	=> Start plugins for each filetype
 filetype plugin on

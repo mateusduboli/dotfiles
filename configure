@@ -1,9 +1,0 @@
-#!/bin/bash
-
-REPO=$PWD
-for file in * ; do
-	if [ "$file" != "configure" ] && [ "$file" != "README.md" ]; then
-		cd ~
-		ln -s -i -b $REPO/$file .$file	
-	fi
-done
