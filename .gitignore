@@ -1,2 +1,3 @@
 dot_files/vim/bundle/
 dot_files/vim/.netrwhist
+backup/*

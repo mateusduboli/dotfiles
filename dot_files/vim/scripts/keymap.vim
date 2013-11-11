@@ -1,21 +1,24 @@
 "	=> Disable Arrowkeys
 
-no <Down> gj
-no <Up> gk
-no <Left> <Nop>
-no <Right> <Nop>
+noremap <Down> gj
+noremap <Up> gk
+noremap <Left> <Nop>
+noremap <Right> <Nop>
 
-ino <Down> <Nop>
-ino <Up> <Nop>
-ino <Left> <Nop>
-ino <Right> <Nop>
+inoremap <Down> <Nop>
+inoremap <Up> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
 
-" {{{ OmniCompletition 
+"	{{{	OmniCompletition 
 "	=> Map Ctrl-Space to completition
-ino <expr> <C-@> pumvisible() ? '<C-N>' : '<C-X><C-O>'
+if has("gui")
+	inoremap <expr> <C-Space> pumvisible() ? '<C-N>' : '<C-X><C-O>'
+else
+	inoremap <expr> <C-@> pumvisible() ? '<C-N>' : '<C-X><C-O>'
+endif
 "	=> Makes enter to hide the option menu
-ino <expr> <CR> pumvisible() ? '<C-Y>' : '<CR>'
-" }}}
-
-" {{{ File navigation
-" }}}
+inoremap <expr> <CR> pumvisible() ? '<C-Y>' : '<CR>'
+"	}}}
+"	{{{File navigation
+"	}}}

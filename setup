@@ -1,16 +1,19 @@
 #!/bin/bash
 
-REPO=$PWD
-DOT_FILES=$REPO/dot_files
+BASE=$PWD
+BACKUP=$PWD/backup
+DOT_FILES=$BASE/dot_files
+REPOS=$BASE/repositories
 
 for file in $DOT_FILES/* ; do
 	filename=$(basename $file)
-	if [ -d "$file" ]; then
-		ln -s $DOT_FILES/$filename ~/.$filename
-	else
-		ln -s -i -b $DOT_FILES/$filename ~/.$filename
+	dest=~/.$filename
+	if [ -d "$dest" ]; then
+		mv ~/.$filename "$filename~"
 	fi
+	ln -s $DOT_FILES/$filename ~/.$filename
 done
+
 # Install Vundle
 git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
 vim +BundleInstall +qall

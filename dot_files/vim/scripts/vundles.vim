@@ -2,10 +2,6 @@
 "	Mateus's VIMrc file
 """""""""""""""""""""""""""""""""""""""""
 
-"""""""""""""""""""""""""""""""""""""""""
-"	=>	Vundle Configuration
-"""""""""""""""""""""""""""""""""""""""""
-
 "	=> Startup configs
 filetype off
 
@@ -29,3 +25,5 @@ Bundle 'bling/vim-airline'
 Bundle 'Tagbar'
 "	=> Git repository manager
 Bundle 'fugitive.vim'
+"	=> Syntastic
+Bundle 'Syntastic'
