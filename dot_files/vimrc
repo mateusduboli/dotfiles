@@ -13,58 +13,11 @@ source ~/.vim/scripts/vundles.vim
 source ~/.vim/scripts/base.vim
 "	=> Scala settings
 autocmd FileType scala source ~/.vim/scripts/scala.vim
-
-"""""""""""""""""""""""""""""""""""""""""
-"	=>	User interface	
-"""""""""""""""""""""""""""""""""""""""""
-
-"	=>	Always show current position
-set ruler
-
-"""""""""""""""""""""""""""""""""""""""""
-"	=>	Style settings
-"""""""""""""""""""""""""""""""""""""""""
-
-"	=> Omnicompletition
-set omnifunc=syntaxcomplete#Complete
-
-"	=>	Color scheme
-colorscheme wombat
-set background=dark
-
-"	=> Syntax highlighting
-syntax on
-
-"	=>	Tab settings	
-set smarttab
-set shiftwidth=4
-set tabstop=4
-
-"	=>	Linebreak on 500 characters
-set lbr
-set tw=500
-
-"	=> Set Backspace over indent, lines and start
-set backspace=indent,eol,start
-
-"""""""""""""""""""""""""""""""""""""""""
-"	=>	Files, backup and ignores
-"""""""""""""""""""""""""""""""""""""""""
-
-"	=>	Ignore compiled files
-set wildignore=*.o,*~,*.pyc
-
-"	=> No backup
-set nobackup
-set nowb
-set noswapfile
-
-
-"	=> Start plugins for each filetype
-filetype plugin on
-
-"	=> Set auto indent on start
-filetype indent on
-
+"	=> C/C++ settings
+autocmd FileType c,cpp source ~/.vim/scripts/c-cpp.vim
+"	=> Java settings
+autocmd FileType java  source ~/.vim/scripts/java.vim
+"	=> Shell settings
+autocmd FileType sh    source ~/.vim/scripts/shell.vim
 "	=>	KeyboadShortcuts
 source ~/.vim/scripts/keymap.vim
