@@ -12,7 +12,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 "	=> Colortheme
-Bundle 'Wombat'
+Bundle 'wombat256.vim'
 "	=> Directory browser
 Bundle 'The-NERD-tree' 
 "	=> Shell inside vim
