@@ -9,7 +9,7 @@ for file in $DOT_FILES/* ; do
 	filename=$(basename $file)
 	dest=~/.$filename
 	if [ -d "$dest" ]; then
-		mv ~/.$filename "$filename~"
+		mv ~/.$filename "$BACKUP/$filename"
 	fi
 	ln -s $DOT_FILES/$filename ~/.$filename
 done
