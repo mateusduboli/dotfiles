@@ -10,10 +10,10 @@
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
+	# include .bashrc if it exists
+	if [ -f "$HOME/.bashrc" ]; then
+	source "$HOME/.bashrc"
+	fi
 fi
 
 PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m[\w]\n\u@\h\[\033[00m\]:\$ '
@@ -45,7 +45,7 @@ fi
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ]; then
-    PATH="$HOME/bin:$PATH"
+	PATH="$HOME/bin:$PATH"
 fi
 
 # add EPOS bin to the PATH variable
@@ -53,10 +53,10 @@ if [ -d "$HOME/Workspace/Bash/bin" ]; then
 	PATH="$HOME/Workspace/Bash/bin:$PATH"
 fi
 
-# set CATALINA_HOME 
+# set CATALINA_HOME
 if [ -d "/usr/local/lib/apache-tomcat" ]; then
-   CATALINA_HOME="/usr/local/lib/apache-tomcat"
-   export CATALINA_HOME
+	CATALINA_HOME="/usr/local/lib/apache-tomcat"
+	export CATALINA_HOME
 fi
 
 PATH="$PATH:/sbin/"
