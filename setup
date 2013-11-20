@@ -24,7 +24,7 @@ linkFiles()
 	mkdir $BACKUP
 	for file in $DOT_FILES/* ; do
 		filename=$(basename $file)
-		dest=~/.$filename
+		dest="$HOME/.$filename"
 		echo "Saving : $dest"
 		mv $dest "$BACKUP/$filename"
 		ln -s $DOT_FILES/$filename $dest
@@ -56,4 +56,4 @@ usage() {
 }
 
 linkFiles
-
+installVim
