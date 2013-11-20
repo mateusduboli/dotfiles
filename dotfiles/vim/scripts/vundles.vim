@@ -27,3 +27,5 @@ Bundle 'Tagbar'
 Bundle 'fugitive.vim'
 "	=> Syntastic
 Bundle 'Syntastic'
+"	=> YouCompleteMe
+Bundle 'Valloric/YouCompleteMe'

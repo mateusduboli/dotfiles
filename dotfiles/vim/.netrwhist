@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/mateus'
+let g:netrw_dirhist_2='/Users/mateus/.vim'
+let g:netrw_dirhist_3='/Users/mateus'
+let g:netrw_dirhist_4='/Users/mateus/Repositories/Github/configs'

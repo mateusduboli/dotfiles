@@ -1,3 +1,4 @@
-dot_files/vim/bundle/
-dot_files/vim/.netrwhist
+dotfiles/vim/bundle/
+dotfiles/vim/.netrwhist
+dotfiles/vim/.NERDTreeBookmarks
 backup/*

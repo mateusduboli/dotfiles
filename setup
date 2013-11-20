@@ -1,20 +1,66 @@
 #!/bin/bash
-
 BASE=$PWD
 BACKUP=$PWD/backup
-DOT_FILES=$BASE/dot_files
+DOT_FILES=$BASE/dotfiles
 REPOS=$BASE/repositories
+MY_DIRS=("Workspace" "Virtual Machines" "Repositories" "Applications" "bin")
 
+checkoutRepos() {
+	echo "checkoutRepos"
+}
 
-for file in $DOT_FILES/* ; do
-	filename=$(basename $file)
-	dest="$HOME/.$filename"
-	echo "Saving : $dest"
-	mv $dest "$BACKUP/$filename"
-	ln -s $DOT_FILES/$filename $dest
-done
+updateRepos() {
+	echo "updateRepos"
+}
 
+makeDirs() {
+	for dir in $MY_DIRS ; do
+		mkdir $dir
+	done
+}
+
+linkFiles()
+{
+	mkdir $BACKUP
+	for file in $DOT_FILES/* ; do
+		filename=$(basename $file)
+		dest="$HOME/.$filename"
+		echo "Saving : $dest"
+		mv $dest "$BACKUP/$filename"
+		ln -s $DOT_FILES/$filename $dest
+	done
+}
+
+installVim() {
+	# Install Vundle
+	git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+	vim +BundleInstall +qall
+}
+
+usage() {
+	printf "Configuration management"
+	printf "\nExample usage"
+	printf "\nsetup [help]"
+	printf "\n\t This menu."
+	printf "\nsetup checkout"
+	printf "\n\tCheckout\\Clone the repositories into the ~/Repositories folder"
+	printf "\nsetup install"
+	printf "\n\tLink and Copy the link and copy folders into the user's home directory"
+	printf "\nsetup update"
+	printf "\n\tUpdate\\Pull the repositories on the ~/Repositories folder"
+	printf "\nsetup upgrade"
+	printf "\n\tDiffs and copies the new files from the link and copy folders, into the user's home directory"
+	printf "\nsetup unistall"
+	printf "\n\tRemove the links installed in the user's home directory, and replaces then with the backups"
+	printf "\n"
+}
+
+<<<<<<< HEAD
 # Install Vundle
 git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
 wget https://conque.googlecode.com/files/conque_2.3.vmb -o /tmp/conque_2.3.vmb
 vim +BundleInstall +"source /tmp/conque_2.3.vmb" +qall
+=======
+linkFiles
+installVim
+>>>>>>> ed2c8ce0b5e6f7f28a72262ce8478d2b431dfc9d

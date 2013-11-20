@@ -1,6 +1,5 @@
 " {{{ Sidebar
 "	=> Show linenumbers
-set relativenumber
 set number
 " }}}
 
@@ -9,9 +8,12 @@ set number
 set wildmenu
 set wildmode=longest:list
 
-"	=> Search smartcase
-set ignorecase
-set smartcase
+" }}}
+
+" {{{ Search
+	"	=> Search smartcase
+	set ignorecase
+	set smartcase
 " }}}
 
 " {{{ Status bar
@@ -56,6 +58,11 @@ set tabstop=4
 set linebreak
 " }}}
 
+" {{{ Formatting
+"	=>	Break big lines to fit the screen (no EOL)
+set linebreak
+" }}}
+
 " {{{ Other Settings
 
 "	=> Set Backspace over indent, lines and start
@@ -69,8 +76,6 @@ set noswapfile
 "	=> Enable filetype detection
 filetype on
 filetype plugin indent on
-"	=>	Break big lines to fit the screen (no EOL)
-set linebreak
 " }}}
 
 " vim:foldmethod=marker
