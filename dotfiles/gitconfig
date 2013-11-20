@@ -1,3 +1,4 @@
+# vim:ft=gitconfig
 [user]
 	email = mateusduboli@gmail.com
 	name = Mateus Dubiela Oliveira
@@ -5,3 +6,5 @@
 	editor = vim
 [color]
 	ui = true
+[push]
+	default = simple
