@@ -16,4 +16,5 @@ done
 
 # Install Vundle
 git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-vim +BundleInstall +qall
+wget https://conque.googlecode.com/files/conque_2.3.vmb -o /tmp/conque_2.3.vmb
+vim +BundleInstall +"source /tmp/conque_2.3.vmb" +qall
