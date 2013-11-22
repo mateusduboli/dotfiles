@@ -33,8 +33,12 @@ linkFiles()
 
 installVim() {
 	# Install Vundle
+	CONQUE_BALL=conque_2.3.vmb
+	mkdir tmp
 	git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-	vim +BundleInstall +qall
+	cd tmp && wget https://conque.googlecode.com/files/$CONQUE_BALL
+	cd .. && rm -rf tmp
+	vim +BundleInstall +"source tmp/$CONQUE_BALL" +qall
 }
 
 usage() {
@@ -55,12 +59,5 @@ usage() {
 	printf "\n"
 }
 
-<<<<<<< HEAD
-# Install Vundle
-git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
-wget https://conque.googlecode.com/files/conque_2.3.vmb -o /tmp/conque_2.3.vmb
-vim +BundleInstall +"source /tmp/conque_2.3.vmb" +qall
-=======
 linkFiles
 installVim
->>>>>>> ed2c8ce0b5e6f7f28a72262ce8478d2b431dfc9d

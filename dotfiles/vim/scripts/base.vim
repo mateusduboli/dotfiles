@@ -32,10 +32,6 @@ set t_Co=256
 syntax on
 "	=>	Color scheme
 colorscheme wombat256mod
-"	=> Show non-printed characters
-set list
-"	=> Define characters display
-set listchars=eol:¶,tab:»·,trail:·
 " }}}
 
 " {{{ Registers

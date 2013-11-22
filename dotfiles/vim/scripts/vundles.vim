@@ -14,7 +14,7 @@ Bundle 'gmarik/vundle'
 "	=> Colortheme
 Bundle 'wombat256.vim'
 "	=> Directory browser
-Bundle 'The-NERD-tree' 
+Bundle 'The-NERD-tree'
 "	=> Shell inside vim
 Bundle 'Conque-Shell'
 "	=> Surround caracters utilities
@@ -23,9 +23,9 @@ Bundle 'surround.vim'
 Bundle 'bling/vim-airline'
 "	=> Vim Outline
 Bundle 'Tagbar'
-"	=> Git repository manager
-Bundle 'fugitive.vim'
 "	=> Syntastic
 Bundle 'Syntastic'
-"	=> YouCompleteMe
-Bundle 'Valloric/YouCompleteMe'
+if v:version > 730
+	"	=> YouCompleteMe
+	Bundle 'Valloric/YouCompleteMe'
+endif
