@@ -1,4 +1,4 @@
-dotfiles/vim/bundle/
+dotfiles/vim/bundle/**
 dotfiles/vim/.netrwhist
 dotfiles/vim/.NERDTreeBookmarks
 dotfiles/vim/.vim
