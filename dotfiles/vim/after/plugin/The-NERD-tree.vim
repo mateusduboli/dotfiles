@@ -8,5 +8,7 @@ if exists('g:loaded_nerd_tree')
 	" disable the '?' and the bookmarks label
 	let NERDTreeMinimalUI=1
 	" show arrows instead of the '+' and '-' signs
-	let NERDTreeDirArrows=1
+	if !has("gui_running")
+		let NERDTreeDirArrows=0
+	endif
 endif
