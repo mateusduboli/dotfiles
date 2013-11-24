@@ -44,20 +44,54 @@ installVim() {
 usage() {
 	printf "Configuration management"
 	printf "\nExample usage"
-	printf "\nsetup [help]"
-	printf "\n\t This menu."
-	printf "\nsetup checkout"
+	printf "\nsetup [-h]"
+	printf "\n\tThis menu."
+	printf "\n-c"
 	printf "\n\tCheckout\\Clone the repositories into the ~/Repositories folder"
-	printf "\nsetup install"
+	printf "\n-d"
+	printf "\n\tCreate default directories in the user's home folder"
+	printf "\n-i"
 	printf "\n\tLink and Copy the link and copy folders into the user's home directory"
-	printf "\nsetup update"
+	printf "\n-u"
 	printf "\n\tUpdate\\Pull the repositories on the ~/Repositories folder"
-	printf "\nsetup upgrade"
+	printf "\n-g"
 	printf "\n\tDiffs and copies the new files from the link and copy folders, into the user's home directory"
-	printf "\nsetup unistall"
+	printf "\n-r"
 	printf "\n\tRemove the links installed in the user's home directory, and replaces then with the backups"
 	printf "\n"
 }
 
-linkFiles
-installVim
+# If no arguments passed, then print usage and exit
+if [ "$#" == 0 ]; then
+	usage
+	exit 1
+fi
+
+while getopts ":hicugr" OPTION; do
+	case $OPTION in
+		h)
+			usage
+			exit 1
+			;;
+		i)
+			linkFiles
+			installVim
+			;;
+		c)
+			echo "Checkout Repos"
+			;;
+		u)
+			echo "Update repos"
+			;;
+		g)
+			echo "Upgrade"
+			;;
+		r)
+			echo "Uninstall"
+			;;
+		?)
+			usage
+			exit 1
+			;;
+	esac
+done
