@@ -9,6 +9,11 @@
 """""""""""""""""""""""""""""""""""""""""
 
 set guioptions=
+"	=> Show non-printed characters
+set list
+"	=> Define characters display
+set listchars=eol:¶,tab:»·,trail:·
+
 "	=> Is macvim?
 if has("gui_macvim")
 	set guifont=Sauce\ Code\ Powerline\ Semibold:h14

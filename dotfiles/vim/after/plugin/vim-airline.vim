@@ -1,8 +1,8 @@
 if exists('g:loaded_airline')
 	" enable automatic population of the `g:airline_symbols` dictionary with powerline symbols.
-	let g:airline_powerline_fonts=1
 	if has('gui_running')
 		" powerline symbols
+		let g:airline_powerline_fonts=1
 		if !exists('g:airline_symbols')
 			let g:airline_symbols = {}
 		endif
