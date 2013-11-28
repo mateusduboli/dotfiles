@@ -28,18 +28,27 @@ function brewPath {
 	export PATH=/usr/local/sbin:/usr/local/bin:$PATH
 }
 
+function homePath {
+	if [ -d "~/Applications/bin" ]; then
+		export PATH=$HOME/Applications/bin:$PATH
+	fi
+}
 case `uname -s` in
 	"Darwin")
 		prompt
 		completition
 		aliases
 		brewPath
+		homePath
 		;;
+
 	"Linux")
 		completition
 		aliases
 		prompt
+		homePath
 		;;
+
 	*)
 		;;
 esac
