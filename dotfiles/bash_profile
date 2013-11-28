@@ -36,7 +36,10 @@ case `uname -s` in
 		brewPath
 		;;
 	"Linux")
+		completition
+		aliases
+		prompt
 		;;
 	*)
 		;;
-esac 
+esac
