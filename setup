@@ -1,47 +1,41 @@
 #!/bin/bash
-BASE=$PWD
-BACKUP=$PWD/backup
-DOT_FILES=$BASE/dotfiles
-REPOS=$BASE/repositories
-MY_DIRS=("Workspace" "Virtual Machines" "Repositories" "Applications" "bin")
+source setup.cfg
 
-checkoutRepos() {
-	echo "checkoutRepos"
-}
-
-updateRepos() {
-	echo "updateRepos"
-}
-
-makeDirs() {
-	for dir in $MY_DIRS ; do
-		mkdir $dir
+function makeDirs {
+	for dir in ${MY_DIRS[@]} ; do
+		mkdir -p $HOME/$dir 2>/dev/null
+		if [ $? -eq 0 ]; then
+			echo "Directory $HOME/$dir created."
+		else
+			echo "Directory $HOME/$dir already exists."
+		fi
 	done
 }
 
-linkFiles()
-{
-	mkdir $BACKUP
+function linkFiles {
 	for file in $DOT_FILES/* ; do
 		filename=$(basename $file)
 		dest="$HOME/.$filename"
-		echo "Saving : $dest"
-		mv $dest "$BACKUP/$filename"
+		mv $dest "$BACKUP/$filename" 2>/dev/null
+		if [ $? -eq 0 ]; then
+			echo "Saving : $dest"
+		fi
 		ln -s $DOT_FILES/$filename $dest
+		echo "Linking : $dest"
 	done
 }
 
-installVim() {
+function installVim {
 	# Install Vundle
 	CONQUE_BALL=conque_2.3.vmb
 	mkdir tmp
-	git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle
+	git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle 2>/dev/null
 	cd tmp && wget https://conque.googlecode.com/files/$CONQUE_BALL
-	cd .. && rm -rf tmp
 	vim +BundleInstall +"source tmp/$CONQUE_BALL" +qall
+	cd .. && rm -rf tmp
 }
 
-usage() {
+function usage {
 	printf "Configuration management"
 	printf "\nExample usage"
 	printf "\nsetup [-h]"
@@ -67,26 +61,34 @@ if [ "$#" == 0 ]; then
 	exit 1
 fi
 
-while getopts ":hicugr" OPTION; do
+while getopts ":hicdugr" OPTION; do
 	case $OPTION in
 		h)
 			usage
 			exit 1
 			;;
 		i)
+			mkdir $BACKUP 2>/dev/null
 			linkFiles
 			installVim
 			;;
+		d)
+			makeDirs
+			;;
 		c)
+			echo "NOT IMPLEMENTED"
 			echo "Checkout Repos"
 			;;
 		u)
+			echo "NOT IMPLEMENTED"
 			echo "Update repos"
 			;;
 		g)
+			echo "NOT IMPLEMENTED"
 			echo "Upgrade"
 			;;
 		r)
+			echo "NOT IMPLEMENTED"
 			echo "Uninstall"
 			;;
 		?)
