@@ -11,7 +11,7 @@ function prompt {
 	export PS1
 }
 
-function completition {
+function brewCompletition {
 	if [ -f $(brew --prefix)/etc/bash_completion ]; then
 		. $(brew --prefix)/etc/bash_completion
 	fi
@@ -36,14 +36,13 @@ function homePath {
 case `uname -s` in
 	"Darwin")
 		prompt
-		completition
+		brewCompletition
 		aliases
 		brewPath
 		homePath
 		;;
 
 	"Linux")
-		completition
 		aliases
 		prompt
 		homePath
