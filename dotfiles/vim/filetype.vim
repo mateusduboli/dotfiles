@@ -10,3 +10,6 @@ augroup filetypedetect
 	" pom.xml compiler set
 	autocmd BufRead,BufNewFile pom.xml compiler maven
 augroup END
+" Default LaTeX flavor
+let g:tex_flavor = "latex"
+

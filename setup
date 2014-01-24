@@ -12,6 +12,10 @@ function makeDirs {
 	done
 }
 
+function installZsh {
+	curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+}
+
 function linkFiles {
 	for file in $DOT_FILES/* ; do
 		filename=$(basename $file)

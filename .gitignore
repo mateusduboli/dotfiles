@@ -3,3 +3,5 @@ dotfiles/vim/.netrwhist
 dotfiles/vim/.NERDTreeBookmarks
 dotfiles/vim/.vim
 backup/*
+.DS_Store
+*/.DS_Store
