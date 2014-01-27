@@ -1,24 +1,10 @@
-" {{{ ArrowKeys
-"	=> Up and Down move in screen lines
-noremap <Down> gj
-noremap <Up> gk
-"	=> Disable Arrowkeys
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-
-inoremap <Down> <Nop>
-inoremap <Up> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-" }}}
-
-" {{{ LineManipulation
-"	=> Join lines upward
-noremap K kJ
-"	=> Open newline without entering Insertmode
+"	{{{ Normal mode
+"	=> Open new line without entering Insertmode
 nmap o o<ESC>
-"	=> Open newline upward without entering Insertmode
+"	=> Open new line upward without entering Insertmode
 nmap O O<ESC>
+"	=> Disable F1
+map <F1> <NOP>
 "}}}
 
 "	{{{	OmniCompletition
@@ -33,6 +19,7 @@ inoremap <expr> <CR> pumvisible() ? '<C-Y>' : '<CR>'
 "	}}}
 
 "	{{{File navigation
+"	=> F3 Open file on cursor in new split
 noremap <F3> <C-W>f <C-W>H
 "	}}}
 
