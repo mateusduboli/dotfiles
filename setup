@@ -12,6 +12,21 @@ function makeDirs {
 	done
 }
 
+function checkForDependencies {
+	for program in ${PROGRAMS[@]}; do
+		hash $program 2>/dev/null
+		if [ $? -ne 0 ]; then
+			echo "Install ${program} before running the script."
+		fi
+	done
+}
+
+function installOhMyZsh {
+	WGET_ZSH="wget --no-check-certificate https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -"
+	CURL_ZSH="curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
+	{ hash wget 2>/dev/null && $WGET_ZSH | sh; } || { hash curl 2>/dev/null && $CURL_ZSH | sh; }
+}
+
 function linkFiles {
 	for file in $DOT_FILES/* ; do
 		filename=$(basename $file)
@@ -25,13 +40,13 @@ function linkFiles {
 	done
 }
 
-function installVim {
+function installVundle {
 	# Install Vundle
 	CONQUE_BALL=conque_2.3.vmb
 	mkdir tmp
 	git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle 2>/dev/null
 	cd tmp && wget https://conque.googlecode.com/files/$CONQUE_BALL
-	vim +BundleInstall +"source tmp/$CONQUE_BALL" +qall
+	vim +BundleInscurl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | shtall +"source tmp/$CONQUE_BALL" +qall
 	cd .. && rm -rf tmp
 }
 
@@ -70,10 +85,11 @@ while getopts ":hicdugr" OPTION; do
 		i)
 			mkdir $BACKUP 2>/dev/null
 			linkFiles
-			installVim
+			installOhMyZsh
+			installVundle
 			;;
 		d)
-			makeDirs
+			checkForDependencies
 			;;
 		c)
 			echo "NOT IMPLEMENTED"
