@@ -23,6 +23,8 @@ Bundle 'bling/vim-airline'
 Bundle 'Tagbar'
 "	=> Syntastic
 Bundle 'Syntastic'
+"	=> TaskSyntax QuickTask
+Bundle 'aaronbieber/quicktask'
 
 " Plugins that require a updated vim version
 if v:version > 730

@@ -59,6 +59,11 @@ set linebreak
 set linebreak
 " }}}
 
+" {{{ Startup
+"	=> Open the todolist on startup
+autocmd VimEnter * if argc() == 0 | edit ~/.vimtodo | | endif
+" }}}
+
 " {{{ Other Settings
 
 "	=> Set Backspace over indent, lines and start
