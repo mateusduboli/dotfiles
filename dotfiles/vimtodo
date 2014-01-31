@@ -1,0 +1,6 @@
+Coisas que incomodam
+- YouCompleteMe instalar e configurar.
+Coisas que incomodavam
+- Adicionar ao tipo de arquivo 'tex' a variável 'suffixesadd' com o valor
+  '.cls,.tex' para abrir arquivos com o comando 'gf'
+- Remover binding do botão F1

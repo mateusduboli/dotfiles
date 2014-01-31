@@ -5,6 +5,9 @@ nmap o o<ESC>
 nmap O O<ESC>
 "	=> Disable F1
 map <F1> <NOP>
+"	=> Arrows move between screen lines
+map <Up> gk
+map <Down> gj
 "}}}
 
 "	{{{	OmniCompletition
@@ -31,6 +34,4 @@ nmap <C-T> :TagbarToggle<CR>
 " {{{ Make
 nmap <F2> :make run<CR>
 " }}}
-
-
 " vim:foldmethod=marker
