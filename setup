@@ -1,6 +1,10 @@
 #!/bin/bash
 source setup.cfg
 
+function downloadFile {
+	curl $1 -o $2	
+}
+
 function makeDirs {
 	for dir in ${MY_DIRS[@]} ; do
 		mkdir -p $HOME/$dir 2>/dev/null
@@ -13,7 +17,10 @@ function makeDirs {
 }
 
 function installZsh {
-	curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
+	ZSH_SH=install.sh
+	downloadFile https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh $ZSH_SH
+	sh $ZSH_SH
+	rm $ZSH_SH
 }
 
 function linkFiles {
@@ -34,7 +41,7 @@ function installVim {
 	CONQUE_BALL=conque_2.3.vmb
 	mkdir tmp
 	git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle 2>/dev/null
-	cd tmp && wget https://conque.googlecode.com/files/$CONQUE_BALL
+	cd tmp && downloadFile https://conque.googlecode.com/files/$CONQUE_BALL $CONQUE_BALL
 	vim +BundleInstall +"source tmp/$CONQUE_BALL" +qall
 	cd .. && rm -rf tmp
 }
@@ -75,6 +82,7 @@ while getopts ":hicdugr" OPTION; do
 			mkdir $BACKUP 2>/dev/null
 			linkFiles
 			installVim
+			installZsh
 			;;
 		d)
 			makeDirs
