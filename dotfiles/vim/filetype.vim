@@ -9,8 +9,7 @@ augroup filetypedetect
 	autocmd BufRead,BufNewFile *.scala setfiletype scala
 	" pom.xml compiler set
 	autocmd BufRead,BufNewFile pom.xml compiler maven
-	" QuickTask on vimtodo
-	autocmd BufRead,BufNewFile .vimtodo setfiletype quicktask
 augroup END
-" tex files are now recognized as LaTeX
+" Default LaTeX flavor
 let g:tex_flavor = "latex"
+

@@ -1,6 +1,10 @@
 #!/bin/bash
 source setup.cfg
 
+function downloadFile {
+	curl $1 -o $2	
+}
+
 function makeDirs {
 	for dir in ${MY_DIRS[@]} ; do
 		mkdir -p $HOME/$dir 2>/dev/null
@@ -12,19 +16,11 @@ function makeDirs {
 	done
 }
 
-function checkForDependencies {
-	for program in ${PROGRAMS[@]}; do
-		hash $program 2>/dev/null
-		if [ $? -ne 0 ]; then
-			echo "Install ${program} before running the script."
-		fi
-	done
-}
-
-function installOhMyZsh {
-	WGET_ZSH="wget --no-check-certificate https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -"
-	CURL_ZSH="curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
-	{ hash wget 2>/dev/null && $WGET_ZSH | sh; } || { hash curl 2>/dev/null && $CURL_ZSH | sh; }
+function installZsh {
+	ZSH_SH=install.sh
+	downloadFile https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh $ZSH_SH
+	sh $ZSH_SH
+	rm $ZSH_SH
 }
 
 function linkFiles {
@@ -40,13 +36,13 @@ function linkFiles {
 	done
 }
 
-function installVundle {
+function installVim {
 	# Install Vundle
 	CONQUE_BALL=conque_2.3.vmb
 	mkdir tmp
 	git clone https://github.com/gmarik/vundle ~/.vim/bundle/vundle 2>/dev/null
-	cd tmp && wget https://conque.googlecode.com/files/$CONQUE_BALL
-	vim +BundleInscurl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | shtall +"source tmp/$CONQUE_BALL" +qall
+	cd tmp && downloadFile https://conque.googlecode.com/files/$CONQUE_BALL $CONQUE_BALL
+	vim +BundleInstall +"source tmp/$CONQUE_BALL" +qall
 	cd .. && rm -rf tmp
 }
 
@@ -85,11 +81,11 @@ while getopts ":hicdugr" OPTION; do
 		i)
 			mkdir $BACKUP 2>/dev/null
 			linkFiles
-			installOhMyZsh
-			installVundle
+			installVim
+			installZsh
 			;;
 		d)
-			checkForDependencies
+			makeDirs
 			;;
 		c)
 			echo "NOT IMPLEMENTED"
