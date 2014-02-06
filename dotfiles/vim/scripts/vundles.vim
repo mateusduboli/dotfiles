@@ -27,7 +27,7 @@ Bundle 'Syntastic'
 Bundle 'aaronbieber/quicktask'
 
 " Plugins that require a updated vim version
-if v:version > 730
+if v:version > 703
 	"	=> YouCompleteMe
 	Bundle 'Valloric/YouCompleteMe'
 endif
