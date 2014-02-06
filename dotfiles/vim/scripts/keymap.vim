@@ -1,13 +1,20 @@
-"	{{{ Normal mode
-"	=> Open new line without entering Insertmode
-nmap o o<ESC>
-"	=> Open new line upward without entering Insertmode
-nmap O O<ESC>
+"	{{{ Global Mappings
 "	=> Disable F1
 map <F1> <NOP>
 "	=> Arrows move between screen lines
 map <Up> gk
 map <Down> gj
+"	=> Disable the 's' character
+map s <Nop>
+"	=> Disable the 'S' character
+map S <Nop>
+" }}}
+
+"	{{{ Normal mode
+"	=> Open new line without entering Insertmode
+nmap o o<ESC>
+"	=> Open new line upward without entering Insertmode
+nmap O O<ESC>
 "}}}
 
 "	{{{	OmniCompletition
