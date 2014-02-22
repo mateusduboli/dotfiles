@@ -79,4 +79,8 @@ filetype on
 filetype plugin indent on
 " }}}
 
+"	=> File Encoding
+set encoding=utf8
+"
+
 " vim:foldmethod=marker

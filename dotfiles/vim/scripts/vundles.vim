@@ -34,5 +34,5 @@ endif
 " Plugins that require python to be installed
 if has("python")
 	"	=> Shell inside vim
-	Bundle 'Conque-Shell'
+	Bundle 'musicx/conque'
 endif
