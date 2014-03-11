@@ -29,23 +29,14 @@ function removeEmptyDirectories {
 }
 
 function installZsh {
-	SCRIPT=install.sh
-	downloadFile $OH_MY_ZSH_URL $SCRIPT
-	sh $SCRIPT
-	rm $SCRIPT
-}
-
-function linkFiles {
-	for file in $DOT_FILES/* ; do
-		filename=$(basename $file)
-		dest="$HOME/.$filename"
-		mv $dest "$BACKUP/$filename" 2>/dev/null
-		if [ $? -eq 0 ]; then
-			echo "Saving : $dest"
-		fi
-		ln -s $DOT_FILES/$filename $dest
-		echo "Linking : $dest"
-	done
+	if [ $ZSH == '/bin/zsh' ]; then
+		SCRIPT=install.sh
+		downloadFile $OH_MY_ZSH_URL $SCRIPT
+		sh $SCRIPT
+		rm $SCRIPT
+	else
+		echo "Install zsh first"
+	fi
 }
 
 function linkFiles {
@@ -63,6 +54,7 @@ function linkFiles {
 
 function installVim {
 	# Install Vundle
+	git clone $VUNDLE_URL ~/.vim/bundle/vundle 2>/dev/null
 	vim +BundleInstall
 }
 
@@ -93,9 +85,9 @@ function usage {
 # If no arguments passed, then print usage and exit
 if [ "$#" == 0 ]; then
 	mkdir $BACKUP 2>/dev/null
+	installZsh
 	linkFiles
 	installVim
-	installZsh
 	createDirectories
 	exit 1
 fi
