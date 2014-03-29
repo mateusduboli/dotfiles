@@ -51,3 +51,4 @@ case `uname -s` in
 	*)
 		;;
 esac
+export PATH=/usr/local/bin:$PATH

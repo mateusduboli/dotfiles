@@ -15,7 +15,7 @@ Bundle 'gmarik/vundle'
 Bundle 'wombat256.vim'
 "	=> Directory browser
 Bundle 'The-NERD-tree'
-"	=> Surround caracters utilities
+"	=> Surround characters utilities
 Bundle 'surround.vim'
 "	=> Enhanced Status Bar
 Bundle 'bling/vim-airline'
