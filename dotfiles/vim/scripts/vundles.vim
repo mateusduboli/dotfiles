@@ -25,6 +25,8 @@ Bundle 'Tagbar'
 Bundle 'Syntastic'
 "	=> TaskSyntax QuickTask
 Bundle 'aaronbieber/quicktask'
+"	=> Vim git functionalities
+Bundle 'fugitive.vim'
 
 " Plugins that require a updated vim version
 if v:version > 703

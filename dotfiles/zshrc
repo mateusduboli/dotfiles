@@ -3,8 +3,7 @@ ZSH_THEME="candy"
 ZSH_CUSTOM="$HOME/.zsh"
 ZSH_CHAORDIC="$HOME/.zshrc-chaordic"
 APP_BIN="$HOME/Applications/bin"
-plugins+=(git rails vagrant mercurial brew pip django ruby)
-
+plugins+=(yum rake chef git rails vagrant mercurial brew pip django ruby)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -16,7 +15,3 @@ fi
 for file in `ls $APP_BIN/*`; do
 	. $file
 done
-
-export PATH="/usr/local/mysql/bin:$PATH"
-export CFLAGS="-Qunused-arguments"
-export CPPFLAGS="-Qunused-arguments"

@@ -19,5 +19,5 @@ if has("gui_macvim")
 	set guifont=Sauce\ Code\ Powerline\ Semibold:h11
 "	=> Is gVim?
 elseif has("gui_gtk2")
-	set guifont=Source\ Code\ Pro\ for\ Powerline\ Medium\ 12
+	set guifont=Source\ Code\ Pro\ for\ Powerline\ Medium\ 10
 endif
