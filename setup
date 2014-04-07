@@ -1,85 +1,78 @@
 #!/bin/bash
+# vim: sw=4
 source setup.cfg
 
 function downloadFile {
-	LINK=$1
-	OUTPUT=$2
-	if hash curl 2>/dev/null; then
-		curl $LINK -o $OUTPUT
-	elif hash wget 2>/dev/null; then
-		wget -O $OUTPUT $LINK
-	fi
+LINK=$1
+OUTPUT=$2
+if hash curl 2>/dev/null; then
+	curl $LINK -o $OUTPUT
+elif hash wget 2>/dev/null; then
+	wget -O $OUTPUT $LINK
+fi
 }
 
 function createDirectories {
-	for dir in ${MY_DIRS[@]} ; do
-		mkdir -p $HOME/$dir 2>/dev/null
-		if [ $? -eq 0 ]; then
-			echo "Directory $HOME/$dir created."
-		else
-			echo "Directory $HOME/$dir already exists."
-		fi
-	done
+for dir in ${MY_DIRS[@]} ; do
+	mkdir -p $HOME/$dir 2>/dev/null
+	if [ $? -eq 0 ]; then
+		echo "Directory $HOME/$dir created."
+	else
+		echo "Directory $HOME/$dir already exists."
+	fi
+done
 }
 
 function removeEmptyDirectories {
-	for dir in ${MY_DIRS[@]} ; do
-		rmdir $dir 2>/dev/null
-	done
+for dir in ${MY_DIRS[@]} ; do
+	rmdir $dir 2>/dev/null
+done
 }
 
 function installZsh {
-	if [ $ZSH == '/bin/zsh' ]; then
-		SCRIPT=install.sh
-		downloadFile $OH_MY_ZSH_URL $SCRIPT
-		sh $SCRIPT
-		rm $SCRIPT
-	else
-		echo "Install zsh first"
-	fi
+if [ $SHELL == '/bin/zsh' ]; then
+	SCRIPT=install.sh
+	downloadFile $OH_MY_ZSH_URL $SCRIPT
+	sh $SCRIPT
+	rm $SCRIPT
+else
+	echo "Install zsh first"
+fi
 }
 
 function linkFiles {
-	for file in $DOT_FILES/* ; do
-		filename=$(basename $file)
-		dest="$HOME/.$filename"
-		mv $dest "$BACKUP/$filename" 2>/dev/null
-		if [ $? -eq 0 ]; then
-			echo "Saving : $dest"
-		fi
-		ln -s $DOT_FILES/$filename $dest
-		echo "Linking : $dest"
-	done
+for file in $DOT_FILES/* ; do
+	filename=$(basename $file)
+	src="$DOT_FILES/$filename"
+	dest="$HOME/.$filename"
+	if [ -e $dest -o -d $dest ] && [ ! -L $dest ]; then
+		backup="$BACKUP/$filename"
+		echo "Saving : $dest in $backup"
+		mv $dest $backup
+		echo "Linking : $src with $dest"
+		ln -s $src $dest
+	else
+		echo "Nothing to do with : $dest"
+	fi
+done
 }
 
 function installVim {
-	# Install Vundle
-	git clone $VUNDLE_URL ~/.vim/bundle/vundle 2>/dev/null
-	vim +BundleInstall
+# Install Vundle
+git clone $VUNDLE_URL ~/.vim/bundle/vundle 2>/dev/null
+vim +BundleInstall +qa
+cd $HOME/.vim/bundle/YouCompleteMe/ && ./install.sh --clang-completer
 }
 
 function usage {
-	printf "Configuration management"
-	printf "\nExample usage"
-	printf "\nsetup"
-	printf "\n\tLink files in the dotfiles folder, install Vim, install oh-my-zsh and create the directory structure."
-	printf "\n-h"
-	printf "\n\tThis menu."
-	printf "\n-i"
-	printf "\n\tRevert to backup files, and remove empty created directories"
-	#printf "\n-c"
-	#printf "\n\tCheckout\\Clone the repositories into the ~/Repositories folder"
-	#printf "\n-d"
-	#printf "\n\tCreate default directories in the user's home folder"
-	#printf "\n-i"
-	#printf "\n\tLink and Copy the link and copy folders into the user's home directory"
-	#printf "\n-u"
-	#printf "\n\tUpdate\\Pull the repositories on the ~/Repositories folder"
-	#printf "\n-g"
-	#printf "\n\tDiffs and copies the new files from the link and copy folders, into the user's home directory"
-	#printf "\n-r"
-	#printf "\n\tRemove the links installed in the user's home directory, and replaces then with the backups"
-	#printf "\n"
+printf "Configuration management"
+printf "\nExample usage"
+printf "\nsetup"
+printf "\n\tLink files in the dotfiles folder, install Vim, install oh-my-zsh and create the directory structure."
+printf "\n-h"
+printf "\n\tThis menu."
+printf "\n-i"
+printf "\n\tRevert to backup files, and remove empty created directories"
 }
 
 # If no arguments passed, then print usage and exit
@@ -100,7 +93,7 @@ while getopts ":hi" OPTION; do
 			;;
 		i)
 			unlinkFiles
-			removeEmptyDirectories	
+			removeEmptyDirectories
 			;;
 		?)
 			usage
