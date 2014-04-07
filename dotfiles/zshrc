@@ -12,6 +12,10 @@ if [ -e $ZSH_CHAORDIC ]; then
 	source $ZSH_CHAORDIC
 fi
 
+for file in `ls $ZSH_CUSTOM/*`; do
+	. $file
+done
+
 for file in `ls $APP_BIN/*`; do
 	. $file
 done
