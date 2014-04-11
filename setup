@@ -1,5 +1,5 @@
 #!/bin/bash
-# vim: sw=4
+# vim: et:sw=4
 source setup.cfg
 
 function downloadFile {
@@ -45,14 +45,16 @@ for file in $DOT_FILES/* ; do
 	filename=$(basename $file)
 	src="$DOT_FILES/$filename"
 	dest="$HOME/.$filename"
-	if [ -e $dest -o -d $dest ] && [ ! -L $dest ]; then
-		backup="$BACKUP/$filename"
-		echo "Saving : $dest in $backup"
-		mv $dest $backup
-		echo "Linking : $src with $dest"
-		ln -s $src $dest
+	if [ -e $dest ] && [ ! -L $dest ]; then
+	    backup="$BACKUP/$filename"
+	    echo "Saving : $dest in $backup"
+	    mv $dest $backup
+	fi
+	if [ ! -L $dest ]; then
+	    echo "Linking : $src with $dest"
+	    ln -s $src $dest
 	else
-		echo "Nothing to do with : $dest"
+	    echo "Nothing to do with : $dest"
 	fi
 done
 }
@@ -61,7 +63,12 @@ function installVim {
 # Install Vundle
 git clone $VUNDLE_URL ~/.vim/bundle/vundle 2>/dev/null
 vim +BundleInstall +qa
+if [ -e 
 cd $HOME/.vim/bundle/YouCompleteMe/ && ./install.sh --clang-completer
+}
+
+function installFonts {
+fc-cache -f -v 
 }
 
 function usage {
@@ -82,6 +89,7 @@ if [ "$#" == 0 ]; then
 	linkFiles
 	installVim
 	createDirectories
+    installFonts
 	exit 1
 fi
 
