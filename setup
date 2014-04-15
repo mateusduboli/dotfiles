@@ -1,40 +1,44 @@
 #!/bin/bash
-# vim: et:sw=4
+# vim:et:sw=4
 source setup.cfg
 
 function downloadFile {
 LINK=$1
 OUTPUT=$2
 if hash curl 2>/dev/null; then
-	curl $LINK -o $OUTPUT
+    curl $LINK -o $OUTPUT
 elif hash wget 2>/dev/null; then
-	wget -O $OUTPUT $LINK
+    wget -O $OUTPUT $LINK
 fi
 }
 
 function createDirectories {
 for dir in ${MY_DIRS[@]} ; do
-	mkdir -p $HOME/$dir 2>/dev/null
-	if [ $? -eq 0 ]; then
-		echo "Directory $HOME/$dir created."
-	else
-		echo "Directory $HOME/$dir already exists."
-	fi
+    mkdir -p $HOME/$dir 2>/dev/null
+    if [ $? -eq 0 ]; then
+        echo "Directory $HOME/$dir created."
+    else
+        echo "Directory $HOME/$dir already exists."
+    fi
 done
 }
 
 function removeEmptyDirectories {
 for dir in ${MY_DIRS[@]} ; do
-	rmdir $dir 2>/dev/null
+    rmdir $dir 2>/dev/null
 done
 }
 
 function installZsh {
 if [ $SHELL == '/bin/zsh' ]; then
-	SCRIPT=install.sh
-	downloadFile $OH_MY_ZSH_URL $SCRIPT
-	sh $SCRIPT
-	rm $SCRIPT
+	if [ -d "$HOME/.oh-my-zsh" ]; then
+		SCRIPT=install.sh
+		downloadFile $OH_MY_ZSH_URL $SCRIPT
+		sh $SCRIPT
+		rm $SCRIPT
+	else
+		echo "Oh my ZSH already installed"
+	fi
 else
 	echo "Install zsh first"
 fi
@@ -42,20 +46,20 @@ fi
 
 function linkFiles {
 for file in $DOT_FILES/* ; do
-	filename=$(basename $file)
-	src="$DOT_FILES/$filename"
-	dest="$HOME/.$filename"
-	if [ -e $dest ] && [ ! -L $dest ]; then
-	    backup="$BACKUP/$filename"
-	    echo "Saving : $dest in $backup"
-	    mv $dest $backup
-	fi
-	if [ ! -L $dest ]; then
-	    echo "Linking : $src with $dest"
-	    ln -s $src $dest
-	else
-	    echo "Nothing to do with : $dest"
-	fi
+    filename=$(basename $file)
+    src="$DOT_FILES/$filename"
+    dest="$HOME/.$filename"
+    if [ -e $dest ] && [ ! -L $dest ]; then
+        backup="$BACKUP/$filename"
+        echo "Saving : $dest in $backup"
+        mv $dest $backup
+    fi
+    if [ ! -L $dest ]; then
+        echo "Linking : $src with $dest"
+        ln -s $src $dest
+    else
+        echo "Nothing to do with : $dest"
+    fi
 done
 }
 
@@ -63,12 +67,13 @@ function installVim {
 # Install Vundle
 git clone $VUNDLE_URL ~/.vim/bundle/vundle 2>/dev/null
 vim +BundleInstall +qa
-if [ -e 
-cd $HOME/.vim/bundle/YouCompleteMe/ && ./install.sh --clang-completer
+if [ ! -d $HOME/.vim/bundle/YouCompleMe ]; then
+    cd $HOME/.vim/bundle/YouCompleteMe/ && ./install.sh --clang-completer
+fi
 }
 
 function installFonts {
-fc-cache -f -v 
+fc-cache -f -v
 }
 
 function usage {
@@ -84,28 +89,28 @@ printf "\n\tRevert to backup files, and remove empty created directories"
 
 # If no arguments passed, then print usage and exit
 if [ "$#" == 0 ]; then
-	mkdir $BACKUP 2>/dev/null
-	installZsh
-	linkFiles
-	installVim
-	createDirectories
+    mkdir $BACKUP 2>/dev/null
+    installZsh
+    linkFiles
+    installVim
+    createDirectories
     installFonts
-	exit 1
+    exit 1
 fi
 
 while getopts ":hi" OPTION; do
-	case $OPTION in
-		h)
-			usage
-			exit 1
-			;;
-		i)
-			unlinkFiles
-			removeEmptyDirectories
-			;;
-		?)
-			usage
-			exit 1
-			;;
-	esac
+    case $OPTION in
+        h)
+            usage
+            exit 1
+            ;;
+        i)
+            unlinkFiles
+            removeEmptyDirectories
+            ;;
+        ?)
+            usage
+            exit 1
+            ;;
+    esac
 done
