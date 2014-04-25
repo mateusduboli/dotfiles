@@ -10,8 +10,6 @@ augroup filetypedetect
 	" pom.xml compiler set
 	autocmd BufRead,BufNewFile pom.xml compiler maven
 	" sh files will be zsh
-	autocmd Filetype sh setfiletype zsh	
-	" VagrantFile as ruby file
 	autocmd BufRead,BufNewFile VagrantFile setfiletype ruby
 augroup END
 " Default LaTeX flavor

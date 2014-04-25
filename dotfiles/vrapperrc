@@ -16,6 +16,9 @@ set clipboard=unnamed
 set shiftwidth=4
 set softtabstop=4
 set tabstop=4
+
+"	=> Spaces instead of tabs
+set expandtab
 " }}}
 
 " {{{ ArrowKeys
@@ -35,8 +38,4 @@ inoremap <Right> <Nop>
 " {{{ LineManipulation
 "	=> Join lines upward
 noremap K kJ
-"	=> Open newline without entering Insertmode
-nmap o o<ESC>
-"	=> Open newline upward without entering Insertmode
-nmap O O<ESC>
-"}}}
+" }}}

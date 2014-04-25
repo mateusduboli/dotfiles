@@ -14,7 +14,7 @@ Bundle 'gmarik/vundle'
 "	=> Colortheme
 Bundle 'wombat256.vim'
 "	=> Directory browser
-" Bundle 'The-NERD-tree'
+Bundle 'The-NERD-tree'
 "	=> Surround characters utilities
 Bundle 'surround.vim'
 "	=> Enhanced Status Bar
@@ -23,6 +23,8 @@ Bundle 'bling/vim-airline'
 " Bundle 'Tagbar'
 "	=> Syntastic
 Bundle 'Syntastic'
+"	=> Scala plugin
+Bundle 'vim-scala'
 "	=> TaskSyntax QuickTask
 " Bundle 'aaronbieber/quicktask'
 "	=> Vim git functionalities
