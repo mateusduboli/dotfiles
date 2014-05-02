@@ -24,3 +24,9 @@ if [ -e $APP_PATH ]; then
 	done
 fi
 
+### Source chaordic environment
+if [ -e $ZSH_LOCAL ]; then
+	source $ZSH_LOCAL
+fi
+
+source $ZSH/oh-my-zsh.sh
