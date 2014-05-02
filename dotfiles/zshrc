@@ -2,25 +2,25 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="candy"
 ZSH_CUSTOM="$HOME/.zsh"
 ZSH_LOCAL="$HOME/.zshrc-local"
-APP_BIN="$HOME/Applications/path.d"
-plugins+=(yum rake chef git rails vagrant brew pip django ruby)
+APP_PATH="$HOME/Applications/path.d"
+plugins+=(rake chef git rails vagrant mercurial pip django ruby)
 
 source $ZSH/oh-my-zsh.sh
 
-### Source chaordic environment
+### Source local environment
 if [ -e $ZSH_LOCAL ]; then
 	source $ZSH_LOCAL
 fi
 
 if [ -e $ZSH_CUSTOM ]; then
-for file in `ls $ZSH_CUSTOM/*`; do
-	. $file
-done
+	for file in $ZSH_CUSTOM/*; do
+		source $file
+	done
 fi
 
-if [ -e $APP_BIN ]; then
-for file in `ls $APP_BIN/*`; do
-	. $file
-done
+if [ -e $APP_PATH ]; then
+	for file in $APP_PATH/*; do
+		source $file
+	done
 fi
 

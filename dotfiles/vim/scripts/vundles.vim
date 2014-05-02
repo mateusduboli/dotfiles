@@ -35,8 +35,3 @@ if v:version > 703
 	"	=> YouCompleteMe
 	Bundle 'Valloric/YouCompleteMe'
 endif
-" Plugins that require python to be installed
-" if has("python")
-"	=> Shell inside vim
-" Bundle 'musicx/conque'
-" endif
