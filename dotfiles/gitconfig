@@ -1,32 +1,40 @@
-# vim:ft=gitconfig
+# vim:ft=gitconfig:et:sw=4
 [user]
 	email = mateusduboli@gmail.com
 	name = Mateus Dubiela Oliveira
+
 [core]
 	editor = vim
+
 [color]
 	ui = true
+	branch = auto
+	diff = auto
+	grep = auto
+	interactive = auto
+	status = auto
+
 [push]
 	default = matching
+
 [diff]
 	tool = gvimdiff
+
 [difftool]
 	prompt = false
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[alias]
-	tree = "log --graph --pretty=oneline --abbrev-commit --decorate --all --date=relative"
-	status = "status -sb"
-	s = status -sb
-	loglive = !"watch --color --no-title -n 2 -x zsh -c \"git --no-pager log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all\""
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+
 [merge]
 	tool = vimdiff
+
 [format]
 	pretty=oneline
+
 [pretty]
 	bigline=%h %aN
+
+[alias]
+	tree = "log --graph --pretty=oneline --abbrev-commit --decorate --all --date=relative"
+	st = "status -sb"
+
+[mergetool]
+	keepBackup = false
