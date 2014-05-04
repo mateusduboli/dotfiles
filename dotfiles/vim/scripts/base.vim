@@ -32,6 +32,8 @@ set t_Co=256
 syntax on
 "	=>	Color scheme
 colorscheme wombat256mod
+"	=> Read modeline values
+set modelines=1
 " }}}
 
 " {{{ Registers
