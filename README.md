@@ -43,8 +43,8 @@ prepended with a `.` and symlinked to the `$HOME` of the current user.
     |--->gitconfig
     |--->...
     |--->zsh/
-    |     |--->themes\
-    |     \--->plugins\
+    |     |--->themes/
+    |     \--->plugins/
     \--->vim/
 ```
 
