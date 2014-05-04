@@ -23,15 +23,10 @@ Bundle 'bling/vim-airline'
 " Bundle 'Tagbar'
 "	=> Syntastic
 Bundle 'Syntastic'
-"	=> Scala plugin
-Bundle 'vim-scala'
-"	=> TaskSyntax QuickTask
-" Bundle 'aaronbieber/quicktask'
-"	=> Vim git functionalities
-" Bundle 'fugitive.vim'
+"	=> Git for Vim
 
 " Plugins that require a updated vim version
 if v:version > 703
 	"	=> YouCompleteMe
-	Bundle 'Valloric/YouCompleteMe'
+	"Bundle 'Valloric/YouCompleteMe'
 endif
