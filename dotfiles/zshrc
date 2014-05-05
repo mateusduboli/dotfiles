@@ -3,6 +3,7 @@ ZSH_THEME="candy"
 ZSH_CUSTOM="$HOME/.zsh"
 ZSH_LOCAL="$HOME/.zshrc-local"
 export APP_PATH="$HOME/Applications"
+APP_PATH_D="$APP_PATH/path.d"
 
 plugins+=(rake git rails vagrant mercurial pip django ruby)
 
@@ -13,13 +14,14 @@ if [ -e $ZSH_CUSTOM ]; then
 	done
 fi
 
-if [ -e $APP_PATH ]; then
-	for file in $APP_PATH/*; do
+# Source my path directory
+if [ -e $APP_PATH_D ]; then
+	for file in $APP_PATH_D/*; do
 		source $file
 	done
 fi
 
-### Source chaordic environment
+# Source chaordic environment
 if [ -e $ZSH_LOCAL ]; then
 	source $ZSH_LOCAL
 fi
