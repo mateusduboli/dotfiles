@@ -54,12 +54,8 @@ for file in $DOT_FILES/* ; do
         echo "Saving : $dest in $backup"
         mv $dest $backup
     fi
-    if [ ! -L $dest ]; then
-        echo "Linking : $src with $dest"
-        ln -s $src $dest
-    else
-        echo "Nothing to do with : $dest"
-    fi
+    echo "Linking : $src with $dest"
+    ln -sf $src $dest
 done
 }
 
