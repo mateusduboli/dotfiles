@@ -1,7 +1,6 @@
 #!/bin/bash
 # vim:et:sw=4
 source setup.cfg
-source functions.sh
 HELP="Commands"
 
 function append_help {
@@ -27,8 +26,24 @@ ln -shi $src $dst
 }
 
 function safe_copy {
-filename=$1
-echo $1
+directory=$1
+filename=$2
+
+src="$directory/$filename"
+dst_dir="$HOME/.$directory"
+dst="$dst_dir/$filename"
+
+if [[ ! -d $dst_dir ]]; then
+    echo "Creating $dst_dir."
+    mkdir -p $dst_dir
+fi
+
+if [[ ! -e $dst ]]; then
+    echo "Copying $src to $dst"
+    cp $src $dst
+else
+    echo "$dst already there."
+fi
 }
 
 append_help "zsh" "Installs oh-my-zsh and link my custom folder."
@@ -72,9 +87,10 @@ function install_fonts {
 echo "Installing fonts."
 which 'fc-cache' &> /dev/null
 if [[ $? == 0 ]]; then
-    FONTS=$(cd fonts && ls *)
-    for font in $FONTS; do
-        safe_copy '$font'
+    IFS=$(printf '\t\n\r')
+    font_dir="fonts"
+    for font in $(ls -1 "$font_dir"); do
+        safe_copy $font_dir $font
     done
 else
     echo "First install fcache."
