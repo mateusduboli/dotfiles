@@ -52,6 +52,8 @@ set completeopt=longest,menu
 set smarttab
 set shiftwidth=4
 set tabstop=4
+"	=>  Use spaces instead of tabs
+set expandtab
 "	=>	Break big lines to fit the screen (no EOL)
 set linebreak
 " }}}
