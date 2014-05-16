@@ -16,7 +16,7 @@ fi
 
 # Source my path directory
 if [ -e $APP_PATH_D ]; then
-	for file in $APP_PATH_D/*; do
+	for file in $APP_PATH_D/*.zsh; do
 		source $file
 	done
 fi
@@ -26,5 +26,6 @@ if [ -e $ZSH_LOCAL ]; then
 	source $ZSH_LOCAL
 fi
 
+appendToPath $APP_DIR/bin
 source $ZSH/oh-my-zsh.sh
 has_git_updates

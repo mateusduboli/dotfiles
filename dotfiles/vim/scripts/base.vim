@@ -26,14 +26,17 @@ set laststatus=2
 " }}}
 
 " {{{ Syntax Highlighting
-"	=> Set terminal colors to 256
+"
 set t_Co=256
 "	=> Enable syntax highlight
 syntax on
 "	=>	Color scheme
-colorscheme wombat256mod
+let base16colorspace=256
+colorscheme base16-monokai
 "	=> Read modeline values
 set modelines=1
+"	=> Dark background
+set background=dark
 " }}}
 
 " {{{ Registers

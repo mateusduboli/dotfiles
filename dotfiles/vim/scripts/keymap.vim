@@ -33,12 +33,8 @@ inoremap <expr> <CR> pumvisible() ? '<C-Y>' : '<CR>'
 noremap <F3> <C-W>f <C-W>H
 "	}}}
 
-" {{{ Tagbar
-"	=> Toggle tagbar
-nmap <C-T> :TagbarToggle<CR>
-" }}}
-
 " {{{ Make
 nmap <F2> :make run<CR>
 " }}}
+
 " vim:foldmethod=marker

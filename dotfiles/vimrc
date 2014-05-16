@@ -16,6 +16,3 @@ source ~/.vim/scripts/vundles.vim
 source ~/.vim/scripts/base.vim
 "	=> Keyboard mappings
 source ~/.vim/scripts/keymap.vim
-"	=> Style customizations
-highlight NonText guibg=bg guifg=grey
-highlight SpecialKey guibg=bg
