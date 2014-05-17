@@ -14,7 +14,7 @@ printf "$HELP\n"
 
 function safe_link {
 filename=$1
-src="dotfiles/$filename"
+src="$PWD/dotfiles/$filename"
 dst="$HOME/.$filename"
 if [[ -e $dst ]] && [[ ! -L $dst ]]; then
     bak="$BACKUP/$filename"
@@ -29,7 +29,7 @@ function safe_copy {
 directory=$1
 filename=$2
 
-src="$directory/$filename"
+src="$PWD/$directory/$filename"
 dst_dir="$HOME/.$directory"
 dst="$dst_dir/$filename"
 
@@ -51,7 +51,7 @@ function install_zsh {
 echo "Installing oh-my-zsh."
 which 'zsh' &> /dev/null # Checks for ZSH
 if [[ $? == 0 ]]; then
-    if [[ -e "$HOME/.oh-my-zsh" ]]; then
+    if [[ ! -e "$HOME/.oh-my-zsh" ]]; then
         curl -L --progress-bar http://install.ohmyz.sh | sh
     else
         echo "oh-my-zsh already installed."
@@ -92,6 +92,7 @@ if [[ $? == 0 ]]; then
     for font in $(ls -1 "$font_dir"); do
         safe_copy $font_dir $font
     done
+    $(fc-cache "$HOME/.fonts")
 else
     echo "First install fcache."
 fi
@@ -100,6 +101,7 @@ fi
 append_help "git" "Links my gitconfig."
 function install_git {
 echo "Installing git"
+safe_link 'gitconfig'
 }
 
 append_help "all" "Runs all the above."
