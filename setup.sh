@@ -74,7 +74,7 @@ if [[ $? == 0 ]]; then
     else
         echo "Vundle already installed."
     fi
-    vim +BundleInstall +qa
+    vim +PluginInstall +qa
     safe_link 'vrapperrc'
     safe_link 'gvimrc'
     safe_link 'vimrc'

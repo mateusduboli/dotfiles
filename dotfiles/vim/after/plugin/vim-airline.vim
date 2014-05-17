@@ -15,4 +15,6 @@ if exists('g:loaded_airline')
 		let g:airline_symbols.readonly = ''
 		let g:airline_symbols.linenr = ''
 	endif
+  let g:airline#extensions#branch#enabled = 1
+  let g:airline#extensions#whitespace#enabled = 0
 endif
