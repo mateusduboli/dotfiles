@@ -26,6 +26,6 @@ if [ -e $ZSH_LOCAL ]; then
 	source $ZSH_LOCAL
 fi
 
-appendToPath $APP_DIR/bin
+appendToPath $APP_PATH/bin
 source $ZSH/oh-my-zsh.sh
 has_git_updates
