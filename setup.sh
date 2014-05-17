@@ -75,6 +75,8 @@ if [[ $? == 0 ]]; then
         echo "Vundle already installed."
     fi
     vim +BundleInstall +qa
+    safe_link 'vrapperrc'
+    safe_link 'gvimrc'
     safe_link 'vimrc'
     safe_link 'vim'
 else
@@ -92,7 +94,7 @@ if [[ $? == 0 ]]; then
     for font in $(ls -1 "$font_dir"); do
         safe_copy $font_dir $font
     done
-    $(fc-cache "$HOME/.fonts")
+    fc-cache "$HOME/.fonts"
 else
     echo "First install fcache."
 fi
