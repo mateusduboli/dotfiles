@@ -18,7 +18,7 @@ src="$DOT_FILES/$filename"
 dst="$HOME/.$filename"
 if [[ -e $dst ]] && [[ ! -L $dst ]]; then
     bak="$BACKUP/$filename"
-    echo "Saving $dst to $bak ."
+    echo "Saving $dst to $bak"
     mv $dst $bak
 fi
 echo "Linking $src to $dst"
@@ -46,11 +46,20 @@ else
 fi
 }
 
+function safe_install {
+command=$1
+echo "Installing $command"
+which $command &> /dev/null
+if [[ $? == 0 ]]; then
+    return 0
+else
+    echo "First install $command."
+    return 1
+fi
+}
 append_help "zsh" "Installs oh-my-zsh and link my custom folder."
 function install_zsh {
-echo "Installing oh-my-zsh."
-which 'zsh' &> /dev/null # Checks for ZSH
-if [[ $? == 0 ]]; then
+if safe_install 'zsh'; then
     if [[ ! -e "$HOME/.oh-my-zsh" ]]; then
         curl -L --progress-bar $OH_MY_ZSH_URL | sh
     else
@@ -58,16 +67,12 @@ if [[ $? == 0 ]]; then
     fi
     safe_link 'zshrc'
     safe_link 'zsh'
-else
-    echo "First install zsh."
 fi
 }
 
 append_help "vim" "Installs vundle, install my plugins and link my vimrc and my vim folder"
 function install_vim {
-echo "Installing vundle."
-which 'vim' &> /dev/null # Checks for vim
-if [[ $? == 0 ]]; then
+if  safe_install 'vim' ; then
     VUNDLE_HOME=$HOME/.vim/bundle/vundle
     if [[ -e "$VUNDLE_HOME" ]]; then
         git clone $VUNDLE_URL $VUNDLE_HOME &>/dev/null
@@ -79,31 +84,33 @@ if [[ $? == 0 ]]; then
     safe_link 'gvimrc'
     safe_link 'vimrc'
     safe_link 'vim'
-else
-    echo "First install vim."
 fi
 }
 
 append_help "fonts" "Copy \'Source Code Pro For Powerline\' to .fonts, and runs fcache"
 function install_fonts {
-echo "Installing fonts."
-which 'fc-cache' &> /dev/null
-if [[ $? == 0 ]]; then
+if  safe_install 'fc-cache' ; then
     IFS=$(printf '\t\n\r')
     font_dir="fonts"
     for font in $(ls -1 "$font_dir"); do
         safe_copy $font_dir $font
     done
     fc-cache "$HOME/.fonts"
-else
-    echo "First install fcache."
 fi
 }
 
 append_help "git" "Links my gitconfig."
 function install_git {
-echo "Installing git"
-safe_link 'gitconfig'
+if  safe_install 'git' ; then
+    safe_link 'gitconfig'
+fi
+}
+
+append_help "tmux" "Links tmux.conf"
+function install_tmux {
+if  safe_install 'tmux' ; then
+    safe_link 'tmux.conf'
+fi
 }
 
 append_help "all" "Runs all the above."
@@ -112,6 +119,7 @@ echo "Installing all."
 install_zsh
 install_vim
 install_fonts
+install_tmux
 install_git
 }
 
@@ -127,6 +135,9 @@ case "$1" in
         ;;
     'git')
         install_git
+        ;;
+    'tmux')
+        install_tmux
         ;;
     'all')
         install_all
