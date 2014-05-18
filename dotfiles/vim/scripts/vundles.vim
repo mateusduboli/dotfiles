@@ -28,6 +28,8 @@ Plugin 'tomasr/molokai'
 "   => Scala plugins
 Plugin 'derekwyatt/vim-scala'
 Plugin 'derekwyatt/vim-sbt'
+"   => Tmux plugins
+Plugin 'edkolev/tmuxline.vim'
 
 "   => Json plugins
 Plugin 'leshill/vim-json'

@@ -26,8 +26,10 @@ set laststatus=2
 " }}}
 
 " {{{ Syntax Highlighting
-"	=> Enable syntax highlight
+"   => Terminal settings
 set t_Co=256
+set term=xterm-256color
+"	=> Enable syntax highlight
 syntax on
 "	=>	Color scheme
 colorscheme molokai
@@ -62,11 +64,6 @@ set linebreak
 " {{{ Formatting
 "	=>	Break big lines to fit the screen (no EOL)
 set linebreak
-" }}}
-
-" {{{ Startup
-"	=> Open the todolist on startup
-autocmd VimEnter * if argc() == 0 | edit ~/.vimtodo | | endif
 " }}}
 
 " {{{ Other Settings

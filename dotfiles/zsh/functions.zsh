@@ -1,9 +1,10 @@
 #!/bin/zsh
-function prependToPath {
+# vim: ft=zsh
+function prepend_path {
 	export PATH="$1:$PATH"
 }
 
-function appendToPath {
+function append_path {
 	export PATH="$PATH:$1"
 }
 
@@ -26,4 +27,3 @@ for dir in "$HOME/Workspace"/*; do
 done
 unset dir
 }
-# vim: ft=zsh

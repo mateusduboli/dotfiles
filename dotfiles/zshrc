@@ -5,7 +5,7 @@ ZSH_LOCAL="$HOME/.zshrc.local"
 export APP_PATH="$HOME/Applications"
 APP_PATH_D="$APP_PATH/path.d"
 
-plugins+=(rake git rails vagrant mercurial pip django ruby)
+plugins+=(rake git rails vagrant pip django)
 
 # Source my zsh customizations
 if [ -e $ZSH_CUSTOM ]; then
@@ -21,13 +21,13 @@ if [ -e $APP_PATH_D ]; then
 	done
 fi
 
-# Source chaordic environment
+# Source local environment
 if [ -e $ZSH_LOCAL ]; then
 	source $ZSH_LOCAL
 fi
 
-appendToPath $APP_PATH/bin
+append_path $APP_PATH/bin
 source $ZSH/oh-my-zsh.sh
-has_git_updates
 
 alias v='vim'
+alias tmux='tmux -2u'
