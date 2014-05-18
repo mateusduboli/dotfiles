@@ -14,7 +14,7 @@ printf "$HELP\n"
 
 function safe_link {
 filename=$1
-src="$PWD/dotfiles/$filename"
+src="$DOT_FILES/$filename"
 dst="$HOME/.$filename"
 if [[ -e $dst ]] && [[ ! -L $dst ]]; then
     bak="$BACKUP/$filename"
@@ -52,7 +52,7 @@ echo "Installing oh-my-zsh."
 which 'zsh' &> /dev/null # Checks for ZSH
 if [[ $? == 0 ]]; then
     if [[ ! -e "$HOME/.oh-my-zsh" ]]; then
-        curl -L --progress-bar http://install.ohmyz.sh | sh
+        curl -L --progress-bar $OH_MY_ZSH_URL | sh
     else
         echo "oh-my-zsh already installed."
     fi

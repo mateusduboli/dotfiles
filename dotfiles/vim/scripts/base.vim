@@ -26,9 +26,8 @@ set laststatus=2
 " }}}
 
 " {{{ Syntax Highlighting
-"   => Set terminal colors to 256
-set t_Co=256
 "	=> Enable syntax highlight
+set t_Co=256
 syntax on
 "	=>	Color scheme
 colorscheme molokai

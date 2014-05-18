@@ -12,14 +12,22 @@ call vundle#rc()
 Plugin 'gmarik/vundle'
 
 "	=> Directory browser
-Plugin 'The-NERD-tree'
+Plugin 'scrooloose/nerdtree'
 "	=> Surround characters utilities
-Plugin 'surround.vim'
+Plugin 'tpope/vim-surround'
 "	=> Enhanced Status Bar
 Plugin 'bling/vim-airline'
 "	=> Syntastic
-Plugin 'Syntastic'
+Plugin 'scrooloose/syntastic'
 "	=> Git for Vim
-Plugin 'fugitive.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'mhinz/vim-signify'
 "	=> Color schemes
-Plugin 'molokai'
+Plugin 'tomasr/molokai'
+
+"   => Scala plugins
+Plugin 'derekwyatt/vim-scala'
+Plugin 'derekwyatt/vim-sbt'
+
+"   => Json plugins
+Plugin 'leshill/vim-json'

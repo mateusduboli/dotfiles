@@ -26,3 +26,4 @@ for dir in "$HOME/Workspace"/*; do
 done
 unset dir
 }
+# vim: ft=zsh

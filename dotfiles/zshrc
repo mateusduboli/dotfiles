@@ -29,3 +29,5 @@ fi
 appendToPath $APP_PATH/bin
 source $ZSH/oh-my-zsh.sh
 has_git_updates
+
+alias v='vim'
