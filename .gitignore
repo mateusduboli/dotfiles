@@ -2,6 +2,8 @@ dotfiles/vim/bundle/**
 dotfiles/vim/.netrwhist
 dotfiles/vim/.NERDTreeBookmarks
 dotfiles/vim/.vim
+dotfiles/vim/eclim
+dotfiles/vim/plugin
 backup/*
 .DS_Store
 */.DS_Store

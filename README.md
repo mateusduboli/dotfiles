@@ -15,7 +15,6 @@ I currently work in 3 very different environments, which are:
 My main goal is to normalize the configuration of the present programns:
 
 * vim
-* gvim
 * git
 * zsh
 
@@ -24,17 +23,17 @@ My main goal is to normalize the configuration of the present programns:
 What I want to accomplish with this repo is:
 
 * Keeping track of my configurations on all my environments;
-* Maintain the common and specific configurations from each of then;
-* Keep my Home directory uniform;
+* Maintain the common configurations from all of then;
+* Keep my home directory uniform;
 * Ease the setup on a new environment;
-* Download and install github based solutions for configurations problems;
 * Provide a per-program based installation;
-* Maintain all my configurations only in the home directory.
+* Keep my configurations user based.
 
 ##Structure
 
-The repository is organized as all the files in the `dotfiles` directory will be
-prepended with a `.` and symlinked to the `$HOME` of the current user.
+#### dotfiles/
+On this directory are the files that will be symlinked to home, they will
+be prepended with a `.` and symlinked to the `$HOME` of the current user.
 
 ```
   dotfiles/
@@ -48,5 +47,32 @@ prepended with a `.` and symlinked to the `$HOME` of the current user.
     \--->vim/
 ```
 
+#### configs/
+This directory represents the the `$HOME/.config`, commom in some programmams
+configuration structure. The files there will be symlinked in the right
+subdirectory.
+
+```
+  configs/
+    |--->terminator/
+    |     |--->config
+    |--->xfce4/
+    |     |--->terminal/
+    |     |     |--->terminalrc
+    \--->...
+```
+
+#### fonts/
+This will hold the Source Code Pro for Powerline fonts, so I can copy then to my
+`$HOME/.fonts` use the `fc-cache` to install then.
+
+```
+  fonts/
+    |--->Source Code Pro for Power Line Black.otf
+    |--->Source Code Pro for Power Line Regular.otf
+    \--->...
+```
+
+### Local configurations
 Local configuration files that shouldn't be present on the repo, will need to be
 marked as `.local` so that the scripts on the repo can source then.

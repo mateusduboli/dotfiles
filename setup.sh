@@ -2,6 +2,7 @@
 # vim:et:sw=4
 source setup.cfg
 HELP="Commands"
+LN_OPTS='-s'
 
 function append_help {
 HELP+="\n$1\t\t$2"
@@ -22,7 +23,7 @@ if [[ -e $dst ]] && [[ ! -L $dst ]]; then
     mv $dst $bak
 fi
 echo "Linking $src to $dst"
-ln -shi $src $dst
+ln $LN_OPTS $src $dst
 }
 
 function safe_copy {
@@ -123,6 +124,18 @@ install_tmux
 install_git
 }
 
+function os_opts {
+case "$(uname)" in
+    'Linux')
+        LN_OPTS='-sfi'
+        ;;
+    'Darwin')
+        LN_OPTS='-shi'
+        ;;
+esac
+}
+
+os_opts
 case "$1" in
     'zsh')
         install_zsh
