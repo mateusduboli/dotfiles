@@ -3,6 +3,7 @@
 source setup.cfg
 HELP="Commands"
 LN_OPTS='-s'
+OS=$(uname)
 
 function append_help {
 HELP+="\n$1\t\t$2"
@@ -21,6 +22,13 @@ if [[ -e $dst ]] && [[ ! -L $dst ]]; then
     bak="$BACKUP/$filename"
     echo "Saving $dst to $bak"
     mv $dst $bak
+fi
+if [[ $OS == 'Linux' ]]; then
+    if [[ -d $dst ]]; then
+        bak="$BACKUP/$filename"
+        echo "Saving $dst to $bak"
+        mv $dst $bak
+    fi
 fi
 echo "Linking $src to $dst"
 ln $LN_OPTS $src $dst
