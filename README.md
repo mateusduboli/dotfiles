@@ -76,3 +76,5 @@ This will hold the Source Code Pro for Powerline fonts, so I can copy then to my
 ### Local configurations
 Local configuration files that shouldn't be present on the repo, will need to be
 marked as `.local` so that the scripts on the repo can source then.
+
+Tests
