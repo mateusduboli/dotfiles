@@ -66,6 +66,7 @@ else
     return 1
 fi
 }
+
 append_help "zsh" "Installs oh-my-zsh and link my custom folder."
 function install_zsh {
 if safe_install 'zsh'; then
@@ -144,6 +145,7 @@ esac
 }
 
 os_opts
+mkdir $BACKUP
 case "$1" in
     'zsh')
         install_zsh
