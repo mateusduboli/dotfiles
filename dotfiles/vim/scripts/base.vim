@@ -28,7 +28,7 @@ set laststatus=2
 " {{{ Syntax Highlighting
 "   => Terminal settings
 set t_Co=256
-set term=xterm-256color
+set term=screen-256color
 "	=> Enable syntax highlight
 syntax on
 "	=>	Color scheme
