@@ -37,4 +37,8 @@ noremap <F3> <C-W>f <C-W>H
 nmap <F2> :make run<CR>
 " }}}
 
+" {{{ NERDTree
+"   => <F4> Toggles NERDTree
+map <F4> :NERDTreeToggle<CR>
+" }}}
 " vim:foldmethod=marker
