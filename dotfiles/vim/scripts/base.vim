@@ -1,3 +1,7 @@
+" { File encoding
+"	=> File Encoding
+set encoding=utf8
+"}
 " {{{ Sidebar
 "	=> Show linenumbers
 set number
@@ -37,6 +41,10 @@ colorscheme molokai
 set modelines=1
 "	=> Dark background
 set background=dark
+"   => Show unprinted characters
+set list
+"   => Define characters display
+set listchars=eol:¶,tab:»·,trail:·
 " }}}
 
 " {{{ Registers
@@ -80,9 +88,6 @@ set noswapfile
 filetype on
 filetype plugin indent on
 
-"	=> File Encoding
-set encoding=utf8
-"
 " }}}
 
 
