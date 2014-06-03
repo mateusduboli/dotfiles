@@ -18,6 +18,10 @@ function safe_link {
 filename=$1
 src="$DOT_FILES/$filename"
 dst="$HOME/.$filename"
+if [[ -L $dst ]] && [[ "$(readlink $dst)" == "$src" ]]; then
+    echo "Link to $dst already made"
+    return
+fi
 if [[ -e $dst ]] && [[ ! -L $dst ]]; then
     bak="$BACKUP/$filename"
     echo "Saving $dst to $bak"
