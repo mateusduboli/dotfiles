@@ -10,13 +10,6 @@ map s <Nop>
 map S <Nop>
 " }}}
 
-"	{{{ Normal mode
-"	=> Open new line without entering Insertmode
-nmap o o<ESC>
-"	=> Open new line upward without entering Insertmode
-nmap O O<ESC>
-"}}}
-
 "	{{{	OmniCompletition
 "	=> Map Ctrl-Space to completition
 if has("gui")
@@ -31,6 +24,9 @@ inoremap <expr> <CR> pumvisible() ? '<C-Y>' : '<CR>'
 "	{{{File navigation
 "	=> F3 Open file on cursor in new split
 noremap <F3> <C-W>f <C-W>H
+"   => Move between tabs with <C-W>[ and <C-W>]
+noremap <silent> <C-w>[ :tabprevious<CR>
+noremap <silent> <C-w>] :tabnext<CR>
 "	}}}
 
 " {{{ Make
