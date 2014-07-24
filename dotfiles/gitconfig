@@ -15,7 +15,7 @@
 	status = auto
 
 [push]
-	default = matching
+	default = current
 
 [diff]
 	tool = gvimdiff
