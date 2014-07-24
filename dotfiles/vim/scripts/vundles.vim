@@ -36,3 +36,6 @@ Plugin 'edkolev/tmuxline.vim'
 
 "   => Json plugins
 Plugin 'leshill/vim-json'
+
+"   => Octave
+Plugin 'jvirtanen/vim-octave'
