@@ -30,4 +30,5 @@ append_path $APP_PATH/bin
 source $ZSH/oh-my-zsh.sh
 
 alias v='vim'
+alias top='htop'
 alias tmux='tmux -2u'

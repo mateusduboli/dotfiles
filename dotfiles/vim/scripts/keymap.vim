@@ -12,13 +12,6 @@ map s <Nop>
 map S <Nop>
 " }}}
 
-"	{{{ Normal mode
-"	=> Open new line without entering Insertmode
-nmap o o<ESC>
-"	=> Open new line upward without entering Insertmode
-nmap O O<ESC>
-"}}}
-
 "	{{{	OmniCompletition
 "	=> Map Ctrl-Space to completition
 if has("gui")

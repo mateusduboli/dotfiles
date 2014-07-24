@@ -25,6 +25,9 @@ Plugin 'mhinz/vim-signify'
 "	=> Color schemes
 Plugin 'tomasr/molokai'
 
+"   => Fuzzy file finder
+Plugin 'kien/ctrlp.vim'
+
 "   => Scala plugins
 Plugin 'derekwyatt/vim-scala'
 Plugin 'derekwyatt/vim-sbt'
@@ -33,3 +36,6 @@ Plugin 'edkolev/tmuxline.vim'
 
 "   => Json plugins
 Plugin 'leshill/vim-json'
+
+"   => Octave
+Plugin 'jvirtanen/vim-octave'
