@@ -88,7 +88,7 @@ append_help "vim" "Installs vundle, install my plugins and link my vimrc and my 
 function install_vim {
 if  safe_install 'vim' ; then
     VUNDLE_HOME=$HOME/.vim/bundle/vundle
-    if [[ -e "$VUNDLE_HOME" ]]; then
+    if [[ ! -e "$VUNDLE_HOME" ]]; then
         git clone $VUNDLE_URL $VUNDLE_HOME &>/dev/null
     else
         echo "Vundle already installed."
