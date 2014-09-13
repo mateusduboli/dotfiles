@@ -30,7 +30,7 @@ noremap <silent> <C-w>] :tabnext<CR>
 "	}}}
 
 " {{{ Make
-nmap <F2> :make run<CR>
+nmap <F2> :make<CR>
 " }}}
 
 " {{{ NERDTree
