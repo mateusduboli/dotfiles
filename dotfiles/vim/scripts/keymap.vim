@@ -1,4 +1,6 @@
 "	{{{ Global Mappings
+"	=> Define new leader
+let mapleader = '/'
 "	=> Disable F1
 map <F1> <NOP>
 "	=> Arrows move between screen lines
@@ -24,9 +26,9 @@ inoremap <expr> <CR> pumvisible() ? '<C-Y>' : '<CR>'
 "	{{{File navigation
 "	=> F3 Open file on cursor in new split
 noremap <F3> <C-W>f <C-W>H
-"   => Move between tabs with <C-W>[ and <C-W>]
-noremap <silent> <C-w>[ :tabprevious<CR>
-noremap <silent> <C-w>] :tabnext<CR>
+"   => Navigate between tabs
+nmap <C-W>[ :tabp<CR>
+nmap <C-W>] :tabp<CR>
 "	}}}
 
 " {{{ Make
@@ -37,4 +39,6 @@ nmap <F2> :make<CR>
 "   => <F4> Toggles NERDTree
 map <F4> :NERDTreeToggle<CR>
 " }}}
+
+
 " vim:foldmethod=marker
