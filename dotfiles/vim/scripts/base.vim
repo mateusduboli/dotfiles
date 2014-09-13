@@ -69,11 +69,6 @@ set expandtab
 set linebreak
 " }}}
 
-" {{{ Formatting
-"	=>	Break big lines to fit the screen (no EOL)
-set linebreak
-" }}}
-
 " {{{ Other Settings
 
 "	=> Set Backspace over indent, lines and start
