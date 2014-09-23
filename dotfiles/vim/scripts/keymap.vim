@@ -32,7 +32,7 @@ nmap <C-W>] :tabp<CR>
 "	}}}
 
 " {{{ Make
-nmap <F2> :make run<CR>
+nmap <F2> :make<CR>
 " }}}
 
 " {{{ NERDTree
