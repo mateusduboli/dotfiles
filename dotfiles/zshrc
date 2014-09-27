@@ -4,6 +4,8 @@ ZSH_CUSTOM="$HOME/.zsh"
 ZSH_LOCAL="$HOME/.zshrc.local"
 export APP_PATH="$HOME/Applications"
 APP_PATH_D="$APP_PATH/path.d"
+TERM='xterm-256color'
+LANG='en_US.UTF8'
 
 plugins+=(rake git rails vagrant pip django)
 
@@ -31,4 +33,4 @@ source $ZSH/oh-my-zsh.sh
 
 alias v='vim'
 alias top='htop'
-alias tmux='tmux -2u'
+
