@@ -40,5 +40,8 @@ nmap <F2> :make<CR>
 map <F4> :NERDTreeToggle<CR>
 " }}}
 
+" {{{ Save with zz
+noremap zz :write<CR>
+" }}}
 
 " vim:foldmethod=marker
