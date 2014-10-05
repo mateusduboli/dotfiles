@@ -1,0 +1,3 @@
+alias v='vim'
+alias gst='git st'
+alias top='htop'
