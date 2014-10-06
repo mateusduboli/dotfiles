@@ -81,6 +81,7 @@ if safe_install 'zsh'; then
     fi
     safe_link 'zshrc'
     safe_link 'zsh'
+    safe_link 'zsh.alias'
 fi
 }
 
