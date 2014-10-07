@@ -39,6 +39,7 @@ Plugin 'derekwyatt/vim-sbt'
 
 "   => Tmux
 Plugin 'edkolev/tmuxline.vim'
+Plugin 'christoomey/vim-tmux-navigator'
 
 "   => Json
 Plugin 'leshill/vim-json'
