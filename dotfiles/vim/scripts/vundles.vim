@@ -13,15 +13,20 @@ Plugin 'gmarik/vundle'
 
 "	=> Directory browser
 Plugin 'scrooloose/nerdtree'
+
 "	=> Surround characters utilities
 Plugin 'tpope/vim-surround'
+
 "	=> Enhanced Status Bar
 Plugin 'bling/vim-airline'
+
 "	=> Syntastic
 Plugin 'scrooloose/syntastic'
+
 "	=> Git for Vim
 Plugin 'tpope/vim-fugitive'
 Plugin 'mhinz/vim-signify'
+
 "	=> Color schemes
 Plugin 'tomasr/molokai'
 
@@ -31,11 +36,17 @@ Plugin 'kien/ctrlp.vim'
 "   => Scala plugins
 Plugin 'derekwyatt/vim-scala'
 Plugin 'derekwyatt/vim-sbt'
-"   => Tmux plugins
-Plugin 'edkolev/tmuxline.vim'
 
-"   => Json plugins
+"   => Tmux
+Plugin 'edkolev/tmuxline.vim'
+Plugin 'christoomey/vim-tmux-navigator'
+
+"   => Json
 Plugin 'leshill/vim-json'
 
 "   => Octave
 Plugin 'jvirtanen/vim-octave'
+
+"   => Markdown
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'

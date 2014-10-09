@@ -44,4 +44,11 @@ map <F4> :NERDTreeToggle<CR>
 noremap zz :write<CR>
 " }}}
 
+" {{{ Tmux window navigation
+noremap <silent> <C-a>h :TmuxNavigateLeft<cr>
+noremap <silent> <C-a>j :TmuxNavigateDown<cr>
+noremap <silent> <C-a>k :TmuxNavigateUp<cr>
+noremap <silent> <C-a>l :TmuxNavigateRight<cr>
+" }}}
+"
 " vim:foldmethod=marker
