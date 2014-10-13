@@ -31,6 +31,11 @@ nmap <C-W>[ :tabp<CR>
 nmap <C-W>] :tabp<CR>
 "	}}}
 
+"{{{ Screen centering
+"   Center screen in current line with zm
+noremap zm zz
+"}}}
+"
 " {{{ Make
 nmap <F2> :make<CR>
 " }}}
@@ -50,5 +55,5 @@ noremap <silent> <C-a>j :TmuxNavigateDown<cr>
 noremap <silent> <C-a>k :TmuxNavigateUp<cr>
 noremap <silent> <C-a>l :TmuxNavigateRight<cr>
 " }}}
-"
+
 " vim:foldmethod=marker
