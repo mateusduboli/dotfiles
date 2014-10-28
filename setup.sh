@@ -125,9 +125,11 @@ append_help "tmux" "Links tmux.conf"
 function install_tmux {
 if  safe_install 'tmux' ; then
     safe_link 'tmux.conf'
-    if [ !$(which mux) ]; then
+    if safe_install 'mux' ; then
         echo "Installing tmuxnator"
         gem install tmuxinator
+    else
+        echo "Tmuxinator already installed"
     fi
 fi
 
