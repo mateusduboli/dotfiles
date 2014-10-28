@@ -61,8 +61,8 @@ set completeopt=longest,menu
 " {{{ Indentation settings
 "	=>	Tab settings
 set smarttab
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 "	=>  Use spaces instead of tabs
 set expandtab
 "	=>	Break big lines to fit the screen (no EOL)
