@@ -85,5 +85,7 @@ filetype plugin indent on
 
 " }}}
 
+" =>  Remove tmux default mappings
+let g:tmux_navigator_no_mappings = 1
 
 " vim:foldmethod=marker

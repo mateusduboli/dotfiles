@@ -28,7 +28,7 @@ inoremap <expr> <CR> pumvisible() ? '<C-Y>' : '<CR>'
 noremap <F3> <C-W>f <C-W>H
 "   => Navigate between tabs
 nmap <C-W>[ :tabp<CR>
-nmap <C-W>] :tabp<CR>
+nmap <C-W>] :tabn<CR>
 "	}}}
 
 "{{{ Screen centering
@@ -37,12 +37,12 @@ noremap zm zz
 "}}}
 "
 " {{{ Make
-nmap <F2> :make<CR>
+nmap <Leader>m :make<CR>
 " }}}
 
 " {{{ NERDTree
 "   => <F4> Toggles NERDTree
-map <F4> :NERDTreeToggle<CR>
+map <Leader>t :NERDTreeToggle<CR>
 " }}}
 
 " {{{ Save with zz
@@ -50,6 +50,14 @@ noremap zz :write<CR>
 " }}}
 
 " {{{ Tmux window navigation
+" => Unmap old navigation
+map <C-W>h <Nop>
+map <C-W>j <Nop>
+map <C-W>k <Nop>
+map <C-W>l <Nop>
+" => Create tabs (or windows) like tmux
+map <C-W>c :tabnew
+" => Map to tmux navigation
 noremap <silent> <C-a>h :TmuxNavigateLeft<cr>
 noremap <silent> <C-a>j :TmuxNavigateDown<cr>
 noremap <silent> <C-a>k :TmuxNavigateUp<cr>
