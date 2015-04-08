@@ -38,3 +38,5 @@
 
 [mergetool]
 	keepBackup = false
+[git-up "fetch"]
+	all = true
