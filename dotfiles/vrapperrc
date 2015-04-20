@@ -21,20 +21,6 @@ set tabstop=4
 set expandtab
 " }}}
 
-" {{{ ArrowKeys
-"	=> Up and Down move in screen lines
-noremap <Down> gj
-noremap <Up> gk
-"	=> Disable Arrowkeys
-noremap <Left> <Nop>
-noremap <Right> <Nop>
-
-inoremap <Down> <Nop>
-inoremap <Up> <Nop>
-inoremap <Left> <Nop>
-inoremap <Right> <Nop>
-" }}}
-
 " {{{ LineManipulation
 "	=> Join lines upward
 noremap K kJ
