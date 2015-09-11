@@ -1,3 +1,6 @@
 alias v='vim'
 alias gst='git st'
 alias top='htop'
+alias today='date -Idate'
+
+unalias knife

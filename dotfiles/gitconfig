@@ -7,7 +7,7 @@
 	editor = vim
 
 [color]
-	ui = true
+	ui = auto
 	branch = auto
 	diff = auto
 	grep = auto
@@ -40,3 +40,7 @@
 	keepBackup = false
 [git-up "fetch"]
 	all = true
+[branch]
+	autosetuprebase = always
+[color "diff"]
+	whitespace = red reverse

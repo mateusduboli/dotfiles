@@ -3,6 +3,8 @@
 let mapleader = ' '
 "	=> Disable F1
 map <F1> <NOP>
+"	=> Disable Q
+map Q <NOP>
 "	=> Arrows move between screen lines
 map <Up> gk
 map <Down> gj

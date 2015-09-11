@@ -50,3 +50,17 @@ Plugin 'jvirtanen/vim-octave'
 "   => Markdown
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+
+"   => Graddle
+Plugin 'tfnico/vim-gradle'
+
+"   => NERDCommenter
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'ngmy/vim-rubocop'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'tpope/vim-endwise'
+
+" => Golang
+Plugin 'fatih/vim-go'
+

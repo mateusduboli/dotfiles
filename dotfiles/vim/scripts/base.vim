@@ -32,7 +32,6 @@ set laststatus=2
 " {{{ Syntax Highlighting
 "   => Terminal settings
 set t_Co=256
-set term=screen-256color
 "	=> Enable syntax highlight
 syntax on
 "	=>	Color scheme
@@ -70,7 +69,8 @@ set linebreak
 " }}}
 
 " {{{ Other Settings
-
+"  => Reduce timeout for insert mode exit
+  set ttimeoutlen=50
 "	=> Set Backspace over indent, lines and start
 set backspace=indent,eol,start
 
@@ -84,8 +84,5 @@ filetype on
 filetype plugin indent on
 
 " }}}
-
-" =>  Remove tmux default mappings
-let g:tmux_navigator_no_mappings = 1
 
 " vim:foldmethod=marker
