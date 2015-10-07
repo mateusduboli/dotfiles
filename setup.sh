@@ -102,6 +102,24 @@ if  safe_install 'vim' ; then
 fi
 }
 
+append_help "nvim" "Installs vundle, install my plugins and link my nvimrc and my nvim folder"
+function install_nvim {
+if  safe_install 'nvim' ; then
+    VUNDLE_HOME="$HOME/.nvim/bundle/vundle"
+    if [[ ! -e "$VUNDLE_HOME" ]]; then
+        git clone $VUNDLE_URL $VUNDLE_HOME >/dev/null
+        echo "Vundle installed."
+    else
+        echo "Vundle already installed."
+    fi
+    nvim +PluginInstall +qa
+    safe_link 'vrapperrc'
+    safe_link 'gvimrc'
+    safe_link 'nvimrc'
+    safe_link 'nvim'
+fi
+}
+
 append_help "fonts" "Copy \'Source Code Pro For Powerline\' to .fonts, and runs fcache"
 function install_fonts {
 if  safe_install 'fc-cache' ; then
@@ -139,7 +157,7 @@ append_help "all" "Runs all the above."
 function install_all {
 echo "Installing all."
 install_zsh
-install_vim
+install_nvim
 install_fonts
 install_tmux
 install_git
@@ -164,6 +182,9 @@ case "$1" in
         ;;
     'vim')
         install_vim
+        ;;
+    'nvim')
+        install_nvim
         ;;
     'fonts')
         install_fonts
