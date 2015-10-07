@@ -153,6 +153,17 @@ fi
 
 }
 
+append_help "rvm'" "Install rvm, the ruby version manager"
+function install_rvm {
+if  safe_install 'rvm' ; then
+    RVM_KEYSERVER='hkp://keys.gnupg.net'
+    RVM_KEYID='409B6B1796C275462A1703113804BB82D39DC0E3'
+    gpg --keyserver $RVM_KEYSERVER \
+        --recv-keys $RVM_KEYID
+    \curl -sSL https://get.rvm.io | bash
+fi
+}
+
 append_help "all" "Runs all the above."
 function install_all {
 echo "Installing all."
@@ -160,6 +171,7 @@ install_zsh
 install_nvim
 install_fonts
 install_tmux
+install_rvm
 install_git
 }
 
@@ -194,6 +206,9 @@ case "$1" in
         ;;
     'tmux')
         install_tmux
+        ;;
+    'rvm')
+        install_rvm
         ;;
     'all')
         install_all
