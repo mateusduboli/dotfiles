@@ -157,7 +157,7 @@ esac
 }
 
 os_opts
-mkdir $BACKUP
+mkdir $BACKUP 2>/dev/null
 case "$1" in
     'zsh')
         install_zsh
