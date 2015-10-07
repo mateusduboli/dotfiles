@@ -1,4 +1,5 @@
-alias v='vim'
+alias v='nvim'
+alias vi='nvim'
 alias gst='git st'
 alias top='htop'
 alias today='date -Idate'
