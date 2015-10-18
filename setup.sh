@@ -136,6 +136,7 @@ append_help "git" "Links my gitconfig."
 function install_git {
 if  safe_install 'git' ; then
     safe_link 'gitconfig'
+    safe_link 'git-commit-template.txt'
 fi
 }
 

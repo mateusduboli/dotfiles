@@ -44,3 +44,5 @@
 	autosetuprebase = always
 [color "diff"]
 	whitespace = red reverse
+[commit]
+	template = /Users/mateus/.git-commit-template.txt
