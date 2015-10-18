@@ -6,18 +6,16 @@
 [merge]
     tool = nvim
 
+[mergetool]
+    keepBackup = false
+    prompt = true
+[mergetool "nvim"]
+    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED
 
 [push]
 	default = current
 
-[diff]
-	tool = gvimdiff
 
-[difftool]
-	prompt = false
-
-[merge]
-	tool = vimdiff
 
 [format]
 	pretty=oneline
@@ -29,13 +27,8 @@
 	tree = "log --graph --pretty=oneline --abbrev-commit --decorate --all --date=relative"
 	st = "status -sb"
 
-[mergetool]
-	keepBackup = false
 [git-up "fetch"]
 	all = true
-[branch]
-	autosetuprebase = always
-[color "diff"]
-	whitespace = red reverse
+	prune = true
 [commit]
 	template = /Users/mateus/.git-commit-template.txt
