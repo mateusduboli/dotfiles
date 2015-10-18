@@ -4,7 +4,7 @@
 	name = Mateus Dubiela Oliveira
 
 [core]
-	editor = vim
+	editor = nvim
 
 [color]
 	ui = auto
