@@ -6,13 +6,6 @@
 [merge]
     tool = nvim
 
-[color]
-	ui = auto
-	branch = auto
-	diff = auto
-	grep = auto
-	interactive = auto
-	status = auto
 
 [push]
 	default = current
