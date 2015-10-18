@@ -32,3 +32,5 @@
 	prune = true
 [commit]
 	template = /Users/mateus/.git-commit-template.txt
+[core]
+	autocrlf = input
