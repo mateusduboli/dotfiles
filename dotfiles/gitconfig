@@ -3,8 +3,8 @@
 	email = mateusduboli@gmail.com
 	name = Mateus Dubiela Oliveira
 
-[core]
-	editor = nvim
+[merge]
+    tool = nvim
 
 [color]
 	ui = auto
