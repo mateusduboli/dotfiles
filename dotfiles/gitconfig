@@ -1,23 +1,22 @@
-# vim:ft=gitconfig:et:sw=4
+# vim:ft=gitconfig:noet:sw=2
 [user]
 	email = mateusduboli@gmail.com
 	name = Mateus Dubiela Oliveira
 
 [merge]
-    tool = nvim
+	tool = nvim
 
 [mergetool]
-    keepBackup = false
-    prompt = true
+	keepBackup = false
+	prompt = true
 [mergetool "nvim"]
-    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
 [push]
 	default = current
 
 [branch]
 	autosetuprebase = always
-
 
 [format]
 	pretty=oneline
