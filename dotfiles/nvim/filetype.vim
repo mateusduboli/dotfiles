@@ -10,6 +10,8 @@ augroup filetypedetect
     autocmd BufRead,BufNewFile VagrantFile setfiletype ruby
     " markdown md
     autocmd BufRead,BufNewFile *.md setfiletype markdown
+    " term windows
+    autocmd TermOpen * setfiletype term
 augroup END
 
 " Default LaTeX flavor
