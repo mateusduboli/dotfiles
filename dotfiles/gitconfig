@@ -10,7 +10,7 @@
     keepBackup = false
     prompt = true
 [mergetool "nvim"]
-    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED
+    cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
 [push]
 	default = current
