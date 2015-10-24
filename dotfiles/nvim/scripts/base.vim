@@ -10,8 +10,9 @@ set number
 " {{{ Command-Mode
 "	=> Enable Command-Mode completition
 set wildmenu
-set wildmode=longest:list
-
+" => First completes to longest, then list possibilities, then cycle through
+" then
+set wildmode=longest:list,full
 " }}}
 
 " {{{ Search
