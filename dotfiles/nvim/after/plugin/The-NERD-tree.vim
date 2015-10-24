@@ -5,6 +5,6 @@ if exists('g:loaded_nerd_tree')
   let NERDTreeShowLineNumbers=1
   " disable the '?' and the bookmarks label
   let NERDTreeMinimalUI=1
-  " autochdir when navigating 
+  " autochdir when navigating
   let NERDTreeChDirMode=2
 endif
