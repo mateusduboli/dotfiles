@@ -63,4 +63,3 @@ Plugin 'tpope/vim-endwise'
 
 " => Golang
 Plugin 'fatih/vim-go'
-

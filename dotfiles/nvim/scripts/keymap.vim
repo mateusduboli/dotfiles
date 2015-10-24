@@ -16,7 +16,7 @@ noremap <leader>w :write<CR>
 " " =>  Make
 nmap <Leader>m :make<CR>
 "   =>  Toggles NERDTree
-  map <Leader>t :NERDTreeToggle<CR>
+map <Leader>t :NERDTreeToggle<CR>
 " }}}
 
 " {{{ Tmux window navigation

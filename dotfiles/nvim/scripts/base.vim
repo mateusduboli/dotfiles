@@ -71,7 +71,7 @@ set linebreak
 
 " {{{ Other Settings
 "  => Reduce timeout for insert mode exit
-  set ttimeoutlen=50
+set ttimeoutlen=50
 "	=> Set Backspace over indent, lines and start
 set backspace=indent,eol,start
 
@@ -83,7 +83,6 @@ set noswapfile
 "	=> Enable filetype detection
 filetype on
 filetype plugin indent on
-
 " }}}
 
 " vim:foldmethod=marker
