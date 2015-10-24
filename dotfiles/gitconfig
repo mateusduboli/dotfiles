@@ -33,6 +33,6 @@
 	all = true
 	prune = true
 [commit]
-	template = /Users/mateus/.git-commit-template.txt
+	template = ~/.git-commit-template.txt
 [core]
 	autocrlf = input
