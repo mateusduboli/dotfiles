@@ -2,6 +2,12 @@
 "	=> File Encoding
 set encoding=utf8
 "}
+"
+
+"{{{ Mouse
+set mouse=
+"}}}
+
 " {{{ Sidebar
 "	=> Show linenumbers
 set number
