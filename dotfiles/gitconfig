@@ -27,11 +27,14 @@
 [alias]
 	tree = "log --graph --pretty=oneline --abbrev-commit --decorate --all --date=relative"
 	st = "status -sb"
+	fulldiff = "!tig origin/master..HEAD"
 
 [git-up "fetch"]
 	all = true
 	prune = true
+
 [commit]
 	template = ~/.git-commit-template.txt
+
 [core]
 	autocrlf = input
