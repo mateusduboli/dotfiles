@@ -61,7 +61,7 @@ fi
 
 function safe_install {
 command=$1
-echo "Installing $command"
+echo "Checking $command"
 which $command &> /dev/null
 if [[ $? == 0 ]]; then
     return 0
