@@ -27,3 +27,28 @@ for dir in "$HOME/Workspace"/*; do
 done
 unset dir
 }
+
+function gcl_chaordic {
+  REPO=$1
+  git clone git@github.com:chaordic/$REPO
+}
+
+function cd_client() {
+  CLIENT=$1
+  FOLDER="$HOME/Dev/Clients/$CLIENT"
+  if [[ ! -d "$FOLDER" ]]; then
+    mkdir -p $FOLDER
+  fi
+  cd $FOLDER
+}
+
+function cd_chaordic() {
+  PROJECT=$1
+  FOLDER="$HOME/Dev/Chaordic/$PROJECT"
+  if [[ ! -d "$FOLDER" ]]; then
+    echo "Couldn't find checkouted project: $PROJECT"
+    return 1
+  else
+    cd $FOLDER
+  fi
+}
