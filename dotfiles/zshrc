@@ -4,7 +4,7 @@ export EDITOR='nvim'
 export GOPATH="$HOME/.go"
 
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="candy"
+ZSH_THEME="cloud"
 ZSH_CUSTOM="$HOME/.zsh"
 ZSH_LOCAL="$HOME/.zshrc.local"
 APP_PATH_D="$APP_PATH/path.d"
