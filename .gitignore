@@ -1,8 +1,8 @@
-dotfiles/vim/bundle/**
-dotfiles/vim/.NERDTreeBookmarks
-dotfiles/vim/.vim
-dotfiles/vim/eclim
-dotfiles/vim/plugin
+dotfiles/nvim/bundle
+dotfiles/nvim/view
+dotfiles/nvim/.NERDTreeBookmarks
+dotfiles/nvim/eclim
+dotfiles/nvim/plugin
 backup/*
 .DS_Store
 .netrwhist

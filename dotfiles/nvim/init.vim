@@ -8,8 +8,8 @@
 "	=>	Scripts
 """""""""""""""""""""""""""""""""""""""""
 "	=> Load Vim Bundles
-source ~/.nvim/scripts/vundles.vim
+source ~/.config/nvim/scripts/vundles.vim
 "	=> Base configuration for all languages
-source ~/.nvim/scripts/base.vim
+source ~/.config/nvim/scripts/base.vim
 "	=> Keyboard mappings
-source ~/.nvim/scripts/keymap.vim
+source ~/.config/nvim/scripts/keymap.vim

@@ -5,11 +5,11 @@
 "	=> Startup configs
 filetype off
 
-set rtp+=~/.nvim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.config/nvim/bundle/Vundle.vim
+call vundle#rc("~/.config/nvim/bundle")
 
 "	=> Vundle Bundle
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 "	=> Directory browser
 Plugin 'scrooloose/nerdtree'

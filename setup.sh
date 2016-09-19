@@ -1,17 +1,40 @@
 #!/bin/bash
 # vim:et:sw=4
 source setup.cfg
-HELP="Commands"
+HELP="Commands\n"
 LN_OPTS='-s'
 OS=$(uname)
 
 function append_help {
-HELP+="\n$1\t\t$2"
+HELP+="$1\t\t$2\n"
 }
 
 append_help "usage" "Prints this text."
 function show_help {
-printf "%s" "$HELP"
+echo -ne "$HELP"
+}
+
+function backup_file {
+  local FILENAME=$1
+  local BAK="$BACKUP/$FILENAME"
+  echo "Backing up $DST to $BAK"
+  mv "$DST" "$BAK"
+}
+
+function link_to_config {
+  local FILENAME=$1
+  local SRC="$DOT_FILES/$FILENAME"
+  local DST="$HOME/.config/$FILENAME"
+
+  if [[ -L "$DST" ]] && [[ "$(readlink "$DST")" == "$SRC" ]]; then
+    echo "Link to $DST already made"
+    return
+  fi
+  if [[ -e "$DST" ]] && [[ ! -L "$DST" ]]; then
+    backup_file "$FILENAME"
+  fi
+  echo "Linking $SRC to $DST"
+  ln "$LN_OPTS" "$SRC" "$DST"
 }
 
 function safe_link {
@@ -85,42 +108,36 @@ if safe_install 'zsh'; then
 fi
 }
 
-append_help "vim" "Installs vundle, install my plugins and link my vimrc and my vim folder"
-function install_vim {
-if  safe_install 'vim' ; then
-    VUNDLE_HOME=$HOME/.vim/bundle/vundle
-    if [[ ! -e "$VUNDLE_HOME" ]]; then
-        git clone "$VUNDLE_URL" "$VUNDLE_HOME" &>/dev/null
-    else
-        echo "Vundle already installed."
-    fi
-    vim +PluginInstall +qa
-    safe_link 'vrapperrc'
-    safe_link 'gvimrc'
-    safe_link 'vimrc'
-    safe_link 'vim'
-fi
+function install_nvim_vundle {
+  if [[ ! -e "$VUNDLE_HOME" ]]; then
+      git clone "$VUNDLE_URL" "$VUNDLE_HOME"  >/dev/null
+      echo "Vundle installed."
+  else
+      echo "Vundle already installed."
+  fi
+  nvim +PluginInstall +qa
 }
 
 append_help "nvim" "Installs vundle, install my plugins and link my nvimrc and my nvim folder"
 function install_nvim {
-if  safe_install 'nvim' ; then
-    VUNDLE_HOME="$HOME/.nvim/bundle/vundle"
-    if [[ ! -e "$VUNDLE_HOME" ]]; then
-        git clone "$VUNDLE_URL" "$VUNDLE_HOME"  >/dev/null
-        echo "Vundle installed."
-    else
-        echo "Vundle already installed."
-    fi
-    nvim +PluginInstall +qa
-    safe_link 'vrapperrc'
-    safe_link 'gvimrc'
-    safe_link 'nvimrc'
-    safe_link 'nvim'
-fi
+  if  safe_install 'nvim' ; then
+    link_to_config 'nvim'
+    install_nvim_vundle
+  fi
 }
 
-append_help "fonts" "Copy \'Source Code Pro For Powerline\' to .fonts, and runs fcache"
+function install_nvim_vundle {
+  VUNDLE_HOME="$HOME/.config/nvim/bundle/Vundle.vim"
+  if [[ ! -e "$VUNDLE_HOME" ]]; then
+      git clone "$VUNDLE_URL" "$VUNDLE_HOME"  >/dev/null
+      echo "Vundle installed."
+  else
+      echo "Vundle already installed."
+  fi
+  nvim +PluginInstall +qa
+}
+
+append_help "fonts" "Copy 'Source Code Pro For Powerline' to .fonts, and runs fcache"
 function install_fonts {
 if  safe_install 'fc-cache' ; then
     IFS=$(printf '\t\n\r')
@@ -154,7 +171,7 @@ fi
 
 }
 
-append_help "rvm'" "Install rvm, the ruby version manager"
+append_help "rvm" "Install rvm, the ruby version manager"
 function install_rvm {
 if  safe_install 'rvm' ; then
     RVM_KEYSERVER='hkp://keys.gnupg.net'
