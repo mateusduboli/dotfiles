@@ -3,7 +3,6 @@
 source setup.cfg
 HELP="Commands\n"
 LN_OPTS='-s'
-OS=$(uname)
 
 function append_help {
   HELP+="$1\t\t$2\n"
@@ -90,8 +89,7 @@ function check_executable {
 append_help "zsh" "Installs oh-my-zsh and link my custom folder."
 function install_zsh {
   if check_executable 'zsh'; then
-
-    if [[ ! -e "$HOME/.oh-my-zsh" ]]; then
+    if [[ ! -e "$OH_MY_ZSH_HOME" ]]; then
       curl -L --progress-bar "$OH_MY_ZSH_URL" | sh
     else
       echo "oh-my-zsh already installed."
@@ -121,7 +119,6 @@ function install_nvim {
 }
 
 function install_nvim_vundle {
-  VUNDLE_HOME="$HOME/.config/nvim/bundle/Vundle.vim"
   if [[ ! -e "$VUNDLE_HOME" ]]; then
     git clone "$VUNDLE_URL" "$VUNDLE_HOME"  >/dev/null
     echo "Vundle installed."
@@ -135,9 +132,8 @@ append_help "fonts" "Copy 'Source Code Pro For Powerline' to .fonts, and runs fc
 function install_fonts {
   if  check_executable 'fc-cache' ; then
     IFS=$(printf '\t\n\r')
-    font_dir="fonts"
-    for font in $font_dir; do
-      safe_copy $font_dir $font
+    for FONT in $FONT_DIR; do
+      safe_copy "$FONT_DIR" "$FONT"
     done
     fc-cache "$HOME/.fonts"
   fi
