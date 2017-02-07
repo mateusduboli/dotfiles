@@ -202,9 +202,6 @@ case "$1" in
   'zsh')
     install_zsh
     ;;
-  'vim')
-    install_vim
-    ;;
   'nvim')
     install_nvim
     ;;
