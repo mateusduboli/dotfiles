@@ -25,6 +25,10 @@ function link_to_config {
   local SRC="$DOT_FILES/$FILENAME"
   local DST="$HOME/.config/$FILENAME"
 
+  if [[ ! -e $(basename $DST) ]]; then
+    echo "Creating '.config' directory"
+    mkdir -p $(basename $DST)
+  fi
   if [[ -L "$DST" ]] && [[ "$(readlink "$DST")" == "$SRC" ]]; then
     echo "Link to $DST already made"
     return
