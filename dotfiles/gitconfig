@@ -9,6 +9,7 @@
 [mergetool]
 	keepBackup = false
 	prompt = true
+
 [mergetool "nvim"]
 	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
@@ -28,6 +29,7 @@
 	tree = "log --graph --pretty=oneline --abbrev-commit --decorate --all --date=relative"
 	st = "status -sb"
 	fulldiff = "!tig origin/master..HEAD"
+	please = "push --force-with-lease"
 
 [git-up "fetch"]
 	all = true
