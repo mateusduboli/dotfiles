@@ -3,6 +3,7 @@
 source setup.cfg
 HELP="Commands\n"
 LN_OPTS='-s'
+FONT_DST="$HOME/.fonts"
 
 function append_help {
   HELP+="$1\t\t$2\n"
@@ -54,27 +55,6 @@ function safe_link {
   fi
   echo "Linking $SRC to $DST"
   ln "$LN_OPTS" "$SRC" "$DST"
-}
-
-function safe_copy {
-  local DIRECTORY=$1
-  local FILENAME=$2
-
-  local SRC="$PWD/$DIRECTORY/$FILENAME"
-  local DST_DIR="$HOME/.$DIRECTORY"
-  local DST="$DST_DIR/$FILENAME"
-
-  if [[ ! -d $DST_DIR ]]; then
-    echo "Creating $DST_DIR."
-    mkdir -p "$DST_DIR"
-  fi
-
-  if [[ ! -e $DST ]]; then
-    echo "Copying $SRC to $DST"
-    cp  "$SRC" "$DST"
-  else
-    echo "$DST already there."
-  fi
 }
 
 function check_executable {
@@ -132,14 +112,33 @@ function install_nvim_vundle {
   nvim +PluginInstall +qa
 }
 
-append_help "fonts" "Copy 'Source Code Pro For Powerline' to .fonts, and runs fcache"
+append_help "fonts" "Copy 'Source Code Pro For Powerline' to $FONT_DST, and runs fcache"
 function install_fonts {
+  if [[ $IS_OSX ]]; then
+    install_fonts_osx
+  else
+    install_fonts_linux
+  fi
+}
+
+function install_fonts_osx {
+  IFS=$(printf '\t\n\r')
+  for FONT in $FONT_SRC; do
+    cp "$FONT_SRC/$FONT" "$FONT_DST/$FONT"
+  done
+}
+
+function install_fonts_linux {
   if  check_executable 'fc-cache' ; then
     IFS=$(printf '\t\n\r')
-    for FONT in $FONT_DIR; do
-      safe_copy "$FONT_DIR" "$FONT"
+    for FONT in $FONT_SRC; do
+      cp "$FONT" "$FONT_DST/$FONT"
     done
-    fc-cache "$HOME/.fonts"
+    if [[ ! -d "$FONT_DST" ]]; then
+      echo "Create $FONT_DST directory"
+      mkdir -p "$FONT_DST"
+    fi
+    fc-cache "$FONT_DST"
   fi
 }
 
@@ -189,9 +188,13 @@ function os_opts {
   case "$(uname)" in
     'Linux')
       LN_OPTS='-sfi'
+      FONT_DST="$HOME/.fonts"
+      IS_OSX=false
       ;;
     'Darwin')
       LN_OPTS='-shi'
+      FONT_DST="$HOME/Library/Fonts"
+      IS_OSX=true
       ;;
   esac
 }
