@@ -14,9 +14,6 @@ Plugin 'VundleVim/Vundle.vim'
 "	=> Directory browser
 Plugin 'scrooloose/nerdtree'
 
-"	=> Surround characters utilities
-Plugin 'tpope/vim-surround'
-
 "	=> Enhanced Status Bar
 Plugin 'bling/vim-airline'
 
@@ -54,12 +51,20 @@ Plugin 'plasticboy/vim-markdown'
 "   => Graddle
 Plugin 'tfnico/vim-gradle'
 
-"   => NERDCommenter
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'ntpeters/vim-better-whitespace'
+"   => Ruby
 Plugin 'ngmy/vim-rubocop'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'tpope/vim-endwise'
 
 " => Golang
 Plugin 'fatih/vim-go'
+
+"   => Clojure
+Plugin 'tpope/vim-fireplace'
+Plugin 'venantius/vim-eastwood'
+Plugin 'venantius/vim-cljfmt'
+
+"   => Miscelaneous
+Plugin 'tpope/vim-surround'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'ntpeters/vim-better-whitespace'
