@@ -1,12 +1,15 @@
 #!/bin/bash
-# vim:et:sw=4
+#vim:et:sw=2
 source setup.cfg
 HELP="Commands\n"
 LN_OPTS='-s'
 FONT_DST="$HOME/.fonts"
 
 function append_help {
-  HELP+="$1\t\t$2\n"
+  COMMAND="$1"
+  MESSAGE="$2"
+  HELP+=$(printf '%-20s %s' "$COMMAND" "$MESSAGE")
+  HELP+="\n"
 }
 
 append_help "usage" "Prints this text."
@@ -84,32 +87,23 @@ function install_zsh {
   fi
 }
 
-function install_nvim_vundle {
-  if [[ ! -e "$VUNDLE_HOME" ]]; then
-    git clone "$VUNDLE_URL" "$VUNDLE_HOME"  >/dev/null
-    echo "Vundle installed."
+append_help "nvim-plugged" "Installs nvim-plugged and the plugins"
+function install_nvim_plugged {
+  if [[ ! -f "$VIM_PLUG_FILE" ]]; then
+  	curl -fLo "$VIM_PLUG_FILE" --create-dirs "$VIM_PLUG_URL"
+    echo "vim-plug installed."
   else
-    echo "Vundle already installed."
+    echo "vim-plug already installed."
   fi
-  nvim +PluginInstall +qa
+  nvim +PlugInstall +qa
 }
 
-append_help "nvim" "Installs vundle, install my plugins and link my nvimrc and my nvim folder"
+append_help "nvim" "Checks for nvim installation, link the config folders and install nvim-plugged"
 function install_nvim {
-  if  check_executable 'nvim' ; then
+  if check_executable 'nvim'; then
     link_to_config 'nvim'
-    install_nvim_vundle
+    install_nvim_plugged
   fi
-}
-
-function install_nvim_vundle {
-  if [[ ! -e "$VUNDLE_HOME" ]]; then
-    git clone "$VUNDLE_URL" "$VUNDLE_HOME"  >/dev/null
-    echo "Vundle installed."
-  else
-    echo "Vundle already installed."
-  fi
-  nvim +PluginInstall +qa
 }
 
 append_help "fonts" "Copy 'Source Code Pro For Powerline' to $FONT_DST, and runs fcache"
@@ -207,6 +201,9 @@ case "$1" in
     ;;
   'nvim')
     install_nvim
+    ;;
+  'nvim-plugged')
+    install_nvim_plugged
     ;;
   'fonts')
     install_fonts
