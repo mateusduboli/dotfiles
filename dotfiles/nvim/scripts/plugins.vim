@@ -52,12 +52,20 @@ Plug 'tpope/vim-endwise'
 " => Golang
 Plug 'fatih/vim-go'
 
+"   => Typescript
+Plug 'Quramy/tsuquyomi'
+Plug 'leafgarland/typescript-vim'
+
 "   => Clojure
 Plug 'tpope/vim-fireplace'
 Plug 'venantius/vim-eastwood'
 Plug 'venantius/vim-cljfmt'
 
+"   => Ionic
+Plug 'akz92/vim-ionic2'
+
 "   => Miscelaneous
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ntpeters/vim-better-whitespace'
