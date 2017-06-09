@@ -168,6 +168,14 @@ function install_rvm {
   fi
 }
 
+append_help "iterm" "Links and configure iterm configuration"
+function install_iterm {
+  echo "Using .iterm folder as iterm configuration"
+  safe_link "iterm"
+  defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.iterm"
+  defaults write com.googlecode.iterm2.plist LoadPrefsCustomFolder -bool true
+}
+
 append_help "all" "Runs all the above."
 function install_all {
   echo "Installing all."
@@ -214,6 +222,9 @@ case "$1" in
     ;;
   'tmux')
     install_tmux
+    ;;
+  'iterm')
+    install_iterm
     ;;
   'rvm')
     install_rvm
