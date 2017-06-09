@@ -117,7 +117,8 @@ function install_fonts {
 
 function install_fonts_osx {
   IFS=$(printf '\t\n\r')
-  for FONT in $FONT_SRC; do
+  for FONT in $FONT_SRC/*; do
+    FONT=$(basename $FONT)
     cp "$FONT_SRC/$FONT" "$FONT_DST/$FONT"
   done
 }
