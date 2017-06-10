@@ -23,6 +23,9 @@ Plug 'tomasr/molokai'
 "   => Fuzzy file finder
 Plug 'kien/ctrlp.vim'
 
+"   => Java plugins
+Plug 'tpope/vim-classpath'
+
 "   => Scala plugins
 Plug 'derekwyatt/vim-scala'
 Plug 'derekwyatt/vim-sbt'
@@ -58,6 +61,7 @@ Plug 'leafgarland/typescript-vim'
 
 "   => Clojure
 Plug 'tpope/vim-fireplace'
+Plug 'guns/vim-clojure-static'
 Plug 'venantius/vim-eastwood'
 Plug 'venantius/vim-cljfmt'
 
