@@ -7,4 +7,7 @@ if exists('g:loaded_nerd_tree')
   let NERDTreeMinimalUI=1
   " autochdir when navigating
   let NERDTreeChDirMode=2
+
+  call add(NERDTreeIgnore, '__pycache__')
+  call add(NERDTreeIgnore, '\.pyc$')
 endif
