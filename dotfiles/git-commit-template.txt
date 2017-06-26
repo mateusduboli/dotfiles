@@ -1,5 +1,7 @@
 # If applied this commit will
 
-# What the changes do?
+# What was the error symptom
 
-# Why they are important?
+# What you did to fix the issue
+
+# How this will affect the code
