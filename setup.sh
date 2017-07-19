@@ -2,8 +2,6 @@
 #vim:et:sw=2
 source setup.cfg
 HELP="Commands\n"
-LN_OPTS='-s'
-FONT_DST="$HOME/.fonts"
 
 function append_help {
   COMMAND="$1"
@@ -90,7 +88,7 @@ function install_zsh {
 append_help "nvim-plugged" "Installs nvim-plugged and the plugins"
 function install_nvim_plugged {
   if [[ ! -f "$VIM_PLUG_FILE" ]]; then
-  	curl -fLo "$VIM_PLUG_FILE" --create-dirs "$VIM_PLUG_URL"
+    curl -fLo "$VIM_PLUG_FILE" --create-dirs "$VIM_PLUG_URL"
     echo "vim-plug installed."
   else
     echo "vim-plug already installed."
