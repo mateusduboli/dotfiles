@@ -154,16 +154,6 @@ function install_tmux {
       echo "Tmuxinator already installed"
     fi
   fi
-
-}
-
-append_help "rvm" "Install rvm, the ruby version manager"
-function install_rvm {
-  if  check_executable 'rvm' ; then
-    gpg --keyserver "$RVM_KEYSERVER" \
-      --recv-keys "$RVM_KEYID"
-    curl -sSL https://get.rvm.io | bash
-  fi
 }
 
 append_help "iterm" "Links and configure iterm configuration"
@@ -181,7 +171,6 @@ function install_all {
   install_nvim
   install_fonts
   install_tmux
-  install_rvm
   install_git
 }
 
@@ -223,9 +212,6 @@ case "$1" in
     ;;
   'iterm')
     install_iterm
-    ;;
-  'rvm')
-    install_rvm
     ;;
   'all')
     install_all
