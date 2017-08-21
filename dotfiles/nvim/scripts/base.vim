@@ -1,94 +1,81 @@
-" { File encoding
-"	=> File Encoding
+" => File Encoding
 set encoding=utf8
-"}
-"
 
-"{{{ Mouse
+" => Disable mouse interaction
 set mouse=
-"}}}
 
-" {{{ Sidebar
-"	=> Show linenumbers
+" => Show linenumbers
 set number
-" }}}
 
-" {{{ Command-Mode
-"	=> Enable Command-Mode completition
+" => Enable Command-Mode completition
 set wildmenu
-" => First completes to longest, then list possibilities, then cycle through
-" then
+
+" => First completes to longest, then list possibilities, then cycle through then
 set wildmode=longest:list,full
-" }}}
 
-" {{{ Search
-	"	=> Search smartcase
-	set ignorecase
-	set smartcase
-" }}}
+" => Search smartcase
+set ignorecase
+set smartcase
 
-" {{{ Status bar
-"	=> Show current command
+" => Show current command
 set showcmd
-"	=> Hide current mode
+
+" => Hide current mode
 set noshowmode
-"	=> Always show status bar
+
+" => Always show status bar
 set laststatus=2
-" }}}
 
-" {{{ Syntax Highlighting
-"   => Terminal settings
+" => Terminal settings
 set t_Co=256
-"	=> Enable syntax highlight
+
+" => Enable syntax highlight
 syntax on
-"	=>	Color scheme
-colorscheme molokai
-"	=> Read modeline values
+
+" =>  Color scheme
+colorscheme noctu
+
+" => Read modeline values
 set modelines=1
-"	=> Dark background
+
+" => Dark background
 set background=dark
-"   => Show unprinted characters
+
+" => Show unprinted characters
 set list
-"   => Define characters display
+
+" => Define characters display
 set listchars=eol:¶,tab:»·,trail:·
-" }}}
 
-" {{{ Registers
-"	=> Set the unnamed register to hold the system clipboard
+" => Set the unnamed register to hold the system clipboard
 set clipboard=unnamed
-" }}}
 
-" {{{ Code completition
 " => Completition Function
 set omnifunc=syntaxcomplete#Complete
 set completeopt=longest,menu
-" }}}
 
-" {{{ Indentation settings
-"	=>	Tab settings
+" =>  Tab settings
 set smarttab
 set shiftwidth=2
 set tabstop=2
-"	=>  Use spaces instead of tabs
-set expandtab
-"	=>	Break big lines to fit the screen (no EOL)
-set linebreak
-" }}}
 
-" {{{ Other Settings
-"  => Reduce timeout for insert mode exit
+" =>  Use spaces instead of tabs
+set expandtab
+
+" =>  Break big lines to fit the screen (no EOL)
+set linebreak
+
+" => Reduce timeout for insert mode exit
 set ttimeoutlen=50
-"	=> Set Backspace over indent, lines and start
+
+" => Set Backspace over indent, lines and start
 set backspace=indent,eol,start
 
-"	=> No backup
+" => No backup
 set nobackup
 set nowritebackup
 set noswapfile
 
-"	=> Enable filetype detection
+" => Enable filetype detection
 filetype on
 filetype plugin indent on
-" }}}
-
-" vim:foldmethod=marker
