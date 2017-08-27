@@ -3,4 +3,8 @@ antigen init ~/.antigenrc
 
 export LC_ALL='en_US.UTF-8'
 export LANG='en_US.UTF-8'
+ZSH_HOME="$HOME/.zsh"
 
+for script in $ZSH_HOME/*.zsh; do
+  source $script
+done

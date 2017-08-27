@@ -1,7 +1,3 @@
-alias v='nvim'
-alias vi='nvim'
-alias vim='nvim'
 alias gst='git st'
-alias top='htop'
 alias today='date -Idate'
 alias browser='exo-open --launch WebBrowser'
