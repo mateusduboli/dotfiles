@@ -1,0 +1,52 @@
+antigen use oh-my-zsh
+
+antigen bundle zdharma/fast-syntax-highlighting
+antigen bundle unixorn/autoupdate-antigen.zshplugin
+antigen bundle oldratlee/hacker-quotes
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle djui/alias-tips
+antigen bundle MikeDacre/cdbk
+antigen bundle trapd00r/zsh-syntax-highlighting-filetypes
+antigen bundle marzocchi/zsh-notify
+
+antigen bundle mafredri/zsh-async
+antigen bundle sindresorhus/pure
+
+antigen bundle common-aliases
+antigen bundle cp
+antigen bundle sudo
+antigen bundle osx
+# Git
+antigen bundle git
+antigen bundle gitfast
+antigen bundle git-extras
+antigen bundle git-flow
+# Node
+antigen bundle bower
+antigen bundle npm
+# Ruby
+antigen bundle gem
+antigen bundle ruby
+antigen bundle rake
+antigen bundle bundler
+# Java
+antigen bundle mvn
+antigen bundle gradle
+# Scala
+antigen bundle scala
+antigen bundle sbt
+# Python
+antigen bundle pip
+antigen bundle python
+# Docker
+antigen bundle docker
+# Go
+antigen bundle golang
+# AWS
+antigen bundle aws
+# Clojure
+antigen bundle lein
+
+antigen apply

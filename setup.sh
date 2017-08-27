@@ -74,14 +74,17 @@ function check_executable {
 append_help "zsh" "Installs oh-my-zsh and link my custom folder."
 function install_zsh {
   if check_executable 'zsh'; then
-    if [[ ! -e "$OH_MY_ZSH_HOME" ]]; then
-      curl -L --progress-bar "$OH_MY_ZSH_URL" | sh
-    else
-      echo "oh-my-zsh already installed."
+    if [[ ! -d "$ANTIGEN_HOME" ]]; then
+      mkdir -p "$ANTIGEN_HOME"
     fi
+    if [[ ! -e "$ANTIGEN_SCRIPT" ]]; then
+      curl -L --progress-bar "$ANTIGEN_URL" > $ANTIGEN_SCRIPT
+    else
+      echo "antigen already installed."
+    fi
+    safe_link 'antigenrc'
     safe_link 'zshrc'
     safe_link 'zsh'
-    safe_link 'zsh.alias'
   fi
 }
 
@@ -162,6 +165,7 @@ append_help "all" "Runs all the above."
 function install_all {
   echo "Installing all."
   install_zsh
+  install_nvim_plugged
   install_nvim
   install_fonts
   install_tmux
