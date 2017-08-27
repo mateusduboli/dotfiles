@@ -1,9 +1,9 @@
-#configs
+# Dotfiles
 
 My dotfiles and misc stuff to organize the configuration of my unix-like
 environments.
 
-##Environments
+## Environments
 
 I currently work in 3 very different environments, which are:
 
@@ -11,14 +11,14 @@ I currently work in 3 very different environments, which are:
 * Fedora 20 (Heisenberg)
 * Ubuntu 12.04 LTS
 
-##Configurations
+## Configurations
 My main goal is to normalize the configuration of the present programns:
 
 * vim
 * git
 * zsh
 
-##Focus
+## Focus
 
 What I want to accomplish with this repo is:
 
@@ -29,7 +29,7 @@ What I want to accomplish with this repo is:
 * Provide a per-program based installation;
 * Keep my configurations user based.
 
-##Structure
+## Structure
 
 #### dotfiles/
 On this directory are the files that will be symlinked to home, they will
