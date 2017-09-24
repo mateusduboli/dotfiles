@@ -8,3 +8,5 @@ ZSH_HOME="$HOME/.zsh"
 for script in $ZSH_HOME/*.zsh; do
   source $script
 done
+
+source "$HOME/.zshrc.local" # local environment configuration
