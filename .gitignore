@@ -1,4 +1,6 @@
 dotfiles/nvim/plugged
+dotfiles/nvim/autoload
+dotfiles/nvim/ftplugin
 dotfiles/nvim/view
 dotfiles/nvim/.NERDTreeBookmarks
 dotfiles/nvim/eclim
