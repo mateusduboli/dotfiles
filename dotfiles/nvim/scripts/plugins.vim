@@ -40,7 +40,8 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-endwise'
 
 " => Golang
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'nsf/gocode', { 'rtp': 'nvim', 'do': '~/.config/nvim/plugged/gocode/nvim/symlink.sh' }
 
 "   => Typescript
 Plug 'Quramy/tsuquyomi'
