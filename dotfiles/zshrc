@@ -10,3 +10,5 @@ for script in $ZSH_HOME/*.zsh; do
 done
 
 source "$HOME/.zshrc.local" # local environment configuration
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

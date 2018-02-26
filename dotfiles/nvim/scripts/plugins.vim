@@ -48,7 +48,10 @@ Plug 'Quramy/tsuquyomi'
 Plug 'leafgarland/typescript-vim'
 
 "   => Ionic
-Plug 'akz92/vim-ionic2'
+Plug 'akz92/vim-ionic2', { 'for': 'html' }
+
+"   => Rust
+Plug 'rust-lang/rust.vim'
 
 "   => Miscelaneous
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
