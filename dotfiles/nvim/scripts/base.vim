@@ -48,7 +48,7 @@ set list
 set listchars=eol:¶,tab:»·,trail:·
 
 " => Set the unnamed register to hold the system clipboard
-set clipboard=unnamed
+set clipboard=unnamedplus
 
 " => Completition Function
 set omnifunc=syntaxcomplete#Complete
