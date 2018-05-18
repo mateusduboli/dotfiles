@@ -17,7 +17,6 @@ antigen bundle sindresorhus/pure
 antigen bundle common-aliases
 antigen bundle cp
 antigen bundle sudo
-antigen bundle osx
 # Git
 antigen bundle git
 antigen bundle gitfast
@@ -44,8 +43,6 @@ antigen bundle python
 antigen bundle docker
 # Go
 antigen bundle golang
-# AWS
-antigen bundle aws
 # Clojure
 antigen bundle lein
 
