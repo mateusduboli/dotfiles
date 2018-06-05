@@ -151,8 +151,17 @@ function install_tmux {
   if  check_executable 'tmux' ; then
     safe_link 'tmux.conf'
   fi
+  install_tpm
 }
 
+function install_tpm {
+  if [[ ! -f "$TPM_HOME" ]]; then
+    echo 'Installing tpm'
+    git clone https://github.com/tmux-plugins/tpm "$TPM_HOME"
+  fi
+
+  tmux run-shell "$TPM_HOME/bindings/install_plugins"
+}
 append_help "iterm" "Links and configure iterm configuration"
 function install_iterm {
   echo "Using .iterm folder as iterm configuration"
