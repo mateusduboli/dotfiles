@@ -39,11 +39,15 @@ antigen bundle sbt
 # Python
 antigen bundle pip
 antigen bundle python
+antigen bundle virtualenvwrapper
 # Docker
 antigen bundle docker
 # Go
 antigen bundle golang
 # Clojure
 antigen bundle lein
+
+# Kubernetes
+antigen bundle kubectl
 
 antigen apply
