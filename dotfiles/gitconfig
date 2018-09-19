@@ -41,3 +41,6 @@
 [core]
 	autocrlf = input
 	editor = nvim
+
+[includeIf "gitdir:~/Dev/Booking/"]
+	path = ~/.gitconfig.booking

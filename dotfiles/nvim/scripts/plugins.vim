@@ -58,5 +58,7 @@ Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'puppetlabs/puppet-syntax-vim'
+
 
 call plug#end()

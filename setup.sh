@@ -71,14 +71,11 @@ function check_executable {
   fi
 }
 
-append_help "zsh" "Installs oh-my-zsh and link my custom folder."
+append_help "zsh" "Installs antigen and link my custom folder."
 function install_zsh {
   if check_executable 'zsh'; then
     if [[ ! -d "$ANTIGEN_HOME" ]]; then
-      mkdir -p "$ANTIGEN_HOME"
-    fi
-    if [[ ! -e "$ANTIGEN_SCRIPT" ]]; then
-      curl -L --progress-bar "$ANTIGEN_URL" > $ANTIGEN_SCRIPT
+      git clone "$ANTIGEN_URL" "$ANTIGEN_HOME"
     else
       echo "antigen already installed."
     fi
