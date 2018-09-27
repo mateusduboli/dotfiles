@@ -49,5 +49,6 @@ antigen bundle lein
 
 # Kubernetes
 antigen bundle kubectl
+antigen bundle /home/mdubielaoliv/Dev/Personal/dotfiles/dotfiles/zsh/plugins/mateusduboli --no-local-clone
 
 antigen apply
