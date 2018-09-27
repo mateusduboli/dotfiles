@@ -27,9 +27,9 @@ function link_to_config {
   local SRC="$DOT_FILES/$FILENAME"
   local DST="$HOME/.config/$FILENAME"
 
-  if [[ ! -e $(basename $DST) ]]; then
+  if [[ ! -e $(dirname $DST) ]]; then
     echo "Creating '.config' directory"
-    mkdir -p $(basename $DST)
+    mkdir -p $(dirname $DST)
   fi
   if [[ -L "$DST" ]] && [[ "$(readlink "$DST")" == "$SRC" ]]; then
     echo "Link to $DST already made"
@@ -42,7 +42,7 @@ function link_to_config {
   ln "$LN_OPTS" "$SRC" "$DST"
 }
 
-function safe_link {
+function link_to_home {
   local FILENAME=$1
   local SRC="$DOT_FILES/$FILENAME"
   local DST="$HOME/.$FILENAME"
@@ -79,9 +79,9 @@ function install_zsh {
     else
       echo "antigen already installed."
     fi
-    safe_link 'antigenrc'
-    safe_link 'zshrc'
-    safe_link 'zsh'
+    link_to_home 'antigenrc'
+    link_to_home 'zshrc'
+    link_to_home 'zsh'
   fi
 }
 
@@ -137,16 +137,16 @@ function install_fonts_linux {
 
 append_help "git" "Links my gitconfig."
 function install_git {
-  if  check_executable 'git' ; then
-    safe_link 'gitconfig'
-    safe_link 'git-commit-template.txt'
+  if check_executable 'git' ; then
+    link_to_home 'gitconfig'
+    link_to_home 'git-commit-template.txt'
   fi
 }
 
 append_help "tmux" "Links tmux.conf"
 function install_tmux {
-  if  check_executable 'tmux' ; then
-    safe_link 'tmux.conf'
+  if check_executable 'tmux' ; then
+    link_to_home 'tmux.conf'
   fi
   install_tpm
 }
@@ -162,7 +162,7 @@ function install_tpm {
 append_help "iterm" "Links and configure iterm configuration"
 function install_iterm {
   echo "Using .iterm folder as iterm configuration"
-  safe_link "iterm"
+  link_to_home "iterm"
   defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.iterm"
   defaults write com.googlecode.iterm2.plist LoadPrefsCustomFolder -bool true
 }
