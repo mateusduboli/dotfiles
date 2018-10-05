@@ -44,3 +44,6 @@
 
 [includeIf "gitdir:~/Dev/Booking/"]
 	path = ~/.gitconfig.booking
+
+[include]
+	path = ~/.gitconfig.local
