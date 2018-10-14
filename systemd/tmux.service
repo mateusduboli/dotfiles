@@ -1,0 +1,9 @@
+[Unit]
+Description=Persistent tmux server seesion
+Documentation=main:tmux(1)
+
+[Service]
+Type=forking
+RemainAfterExit=yes
+ExecStart=/usr/bin/tmux -f $h/.config/tmux/config start-server
+ExecStop=/usr/bin/tmux kill-server
