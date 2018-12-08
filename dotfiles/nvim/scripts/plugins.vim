@@ -53,6 +53,10 @@ Plug 'akz92/vim-ionic2', { 'for': 'html' }
 "   => Rust
 Plug 'rust-lang/rust.vim'
 
+"   => Tmux
+Plug 'tmux-plugins/vim-tmux'
+Plug 'christoomey/vim-tmux-navigator'
+
 "   => Miscelaneous
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 Plug 'tpope/vim-surround'
