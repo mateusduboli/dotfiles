@@ -3,6 +3,8 @@
 """""""""""""""""""""""""""""""""""""""""
 
 call plug#begin()
+"   => Sensitive defaults
+Plug 'tpope/vim-sensible'
 
 "	=> Directory browser
 Plug 'scrooloose/nerdtree'
