@@ -1,3 +1,5 @@
+[ -e "$HOME/.zshrc.before" ] && source "$HOME/.zshrc.before"
+
 source ~/.antigen/antigen.zsh
 antigen init ~/.antigenrc
 
