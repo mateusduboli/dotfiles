@@ -106,7 +106,7 @@ function install_nvim {
 
 append_help "fonts" "Copy 'Source Code Pro For Powerline' to $FONT_DST, and runs fcache"
 function install_fonts {
-  if [[ $IS_OSX ]]; then
+  if ${IS_OSX}; then
     install_fonts_osx
   else
     install_fonts_linux
@@ -122,16 +122,17 @@ function install_fonts_osx {
 }
 
 function install_fonts_linux {
-  if  check_executable 'fc-cache' ; then
+  if check_executable 'fc-cache'; then
     IFS=$(printf '\t\n\r')
-    for FONT in $FONT_SRC; do
-      cp "$FONT" "$FONT_DST/$FONT"
-    done
-    if [[ ! -d "$FONT_DST" ]]; then
-      echo "Create $FONT_DST directory"
-      mkdir -p "$FONT_DST"
+    if [[ ! -d "${FONT_DST}" ]]; then
+      echo "Create ${FONT_DST} directory"
+      mkdir -p "${FONT_DST}"
     fi
-    fc-cache "$FONT_DST"
+    for FONT in ${FONT_SRC}/*; do
+      FONT=$(basename ${FONT})
+      cp "${FONT_SRC}/${FONT}" "${FONT_DST}/${FONT}"
+    done
+    fc-cache "${FONT_DST}"
   fi
 }
 
