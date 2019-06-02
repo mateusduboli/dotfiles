@@ -65,6 +65,6 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'puppetlabs/puppet-syntax-vim'
-
+Plug 'hashivim/vim-terraform'
 
 call plug#end()
