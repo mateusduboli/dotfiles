@@ -17,6 +17,7 @@ antigen bundle sindresorhus/pure
 antigen bundle common-aliases
 antigen bundle cp
 antigen bundle sudo
+antigen bundle fzf
 # Git
 antigen bundle git
 antigen bundle gitfast
@@ -49,6 +50,7 @@ antigen bundle lein
 
 # Kubernetes
 antigen bundle kubectl
+
 antigen bundle /home/mdubielaoliv/Dev/Personal/dotfiles/dotfiles/zsh/plugins/mateusduboli --no-local-clone
 
 antigen apply
