@@ -14,8 +14,3 @@ done
 test -e "${HOME}/.zshrc.local" && source "$HOME/.zshrc.local" # local environment configuration
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-(which rvm 2>&1 > /dev/null) && eval $(rvm env)
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
