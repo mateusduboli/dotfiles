@@ -40,7 +40,7 @@ antigen bundle sbt
 # Python
 antigen bundle pip
 antigen bundle python
-antigen bundle virtualenvwrapper
+antigen bundle pyenv
 # Docker
 antigen bundle docker
 # Go
