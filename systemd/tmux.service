@@ -1,5 +1,5 @@
 [Unit]
-Description=Persistent tmux server seesion
+Description=Persistent tmux server session
 Documentation=main:tmux(1)
 
 [Service]

@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 # Base16 - Gnome Terminal color scheme install script
 
+set -o pipefail
+set -e
+
 [[ -z "$PROFILE_NAME" ]] && PROFILE_NAME="hyper-snazzy"
 [[ -z "$PROFILE_SLUG" ]] && PROFILE_SLUG="hyper-snazzy"
 [[ -z "$DCONF" ]] && DCONF=dconf

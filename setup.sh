@@ -1,8 +1,9 @@
 #!/bin/bash
 #vim:et:sw=2
 set -eo
+BASE=$(realpath $(dirname $0))
+source ${BASE}/setup.cfg
 
-source setup.cfg
 HELP="Commands\n"
 
 function append_help {
@@ -108,7 +109,7 @@ function install_nvim {
 
 append_help "fonts" "Copy 'Source Code Pro For Powerline' to $FONT_DST, and runs fcache"
 function install_fonts {
-  if ${IS_OSX}; then
+  if [[ ${OS_NAME} -eq "osx" ]]; then
     install_fonts_osx
   else
     install_fonts_linux
@@ -149,25 +150,57 @@ function install_git {
 append_help "tmux" "Links tmux.conf"
 function install_tmux {
   if check_executable 'tmux' ; then
-    link_to_home 'tmux.conf'
+    link_to_config 'tmux.conf'
   fi
   install_tpm
+
+  if [[ ${OS_NAME} == 'linux' ]]; then
+    echo "Installing tmux systemd service"
+    if [[ ! -d "${SYSTEMD_USER_HOME}" ]]; then
+        mkdir -p ${SYSTEMD_USER_HOME}
+    fi
+    cp ${SYSTEMD_UNIT_SRC}/tmux.service ${SYSTEMD_USER_HOME}/tmux.service
+    systemctl daemon-reload
+    systemctl --user enable tmux.service
+    systemctl --user start tmux.service
+  fi
 }
 
 function install_tpm {
-  if [[ ! -f "$TPM_HOME" ]]; then
+  if [[ ! -d "$TPM_HOME" ]]; then
     echo 'Installing tpm'
     git clone https://github.com/tmux-plugins/tpm "$TPM_HOME"
   fi
 
   tmux run-shell "$TPM_HOME/bindings/install_plugins"
 }
-append_help "iterm" "Links and configure iterm configuration"
-function install_iterm {
-  echo "Using .iterm folder as iterm configuration"
-  link_to_home "iterm"
-  defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.iterm"
-  defaults write com.googlecode.iterm2.plist LoadPrefsCustomFolder -bool true
+append_help "terminal" "Links and configure the systems terminal configuration"
+function install_terminal {
+  if [[ "${DEFAULT_TERMINAL}" == 'iterm' ]]; then
+    echo "Using .iterm folder as iterm configuration"
+    link_to_home "iterm"
+    defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/.iterm"
+    defaults write com.googlecode.iterm2.plist LoadPrefsCustomFolder -bool true
+  elif [[ "${DEFAULT_TERMINAL}" == 'gnome-terminal' ]]; then
+    ${HELPERS}/gnome-terminal.sh
+  else
+  	echo "No terminal configured"
+  fi
+}
+
+append_help "keyboard" "Configures the keyboard"
+function install_keyboard {
+  if ! which localectl 2>&1 > /dev/null; then
+    echo "Could not find localectl in the system"
+    return 1
+  fi
+
+  localectl --no-convert set-x11-keymap us,us pc105 intlm 'lv3:ralt_switch,caps:escape,terminate:ctrl_alt_bksp'
+  localectl --no-convert set-keymap us-acentos
+
+  if [[ ${DESKTOP_SESSION} == 'gnome' ]]; then
+    gsettings set 'org.gnome.desktop.input-sources' xkb-options '["lv3:ralt_switch", "caps:escape", "terminate:ctrl_alt_bksp"]'
+  fi
 }
 
 append_help "i3" "Links and configure i3vm"
@@ -189,6 +222,8 @@ function install_all {
   install_tmux
   install_git
   install_i3
+  install_terminal
+  install_keyboard
 }
 
 function os_opts {
@@ -196,12 +231,14 @@ function os_opts {
     'Linux')
       LN_OPTS='-sfi'
       FONT_DST="$HOME/.fonts"
-      IS_OSX=false
+      OS_NAME='linux'
+      DEFAULT_TERMINAL='gnome-terminal'
       ;;
     'Darwin')
       LN_OPTS='-shi'
       FONT_DST="$HOME/Library/Fonts"
-      IS_OSX=true
+      OS_NAME='osx'
+      DEFAULT_TERMINAL='iterm'
       ;;
   esac
 }
@@ -227,8 +264,11 @@ case "$1" in
   'tmux')
     install_tmux
     ;;
-  'iterm')
-    install_iterm
+  'terminal')
+    install_terminal
+    ;;
+  'keyboard')
+    install_keyboard
     ;;
   'i3')
     install_i3
