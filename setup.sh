@@ -1,5 +1,7 @@
 #!/bin/bash
 #vim:et:sw=2
+set -eo
+
 source setup.cfg
 HELP="Commands\n"
 
@@ -168,6 +170,15 @@ function install_iterm {
   defaults write com.googlecode.iterm2.plist LoadPrefsCustomFolder -bool true
 }
 
+append_help "i3" "Links and configure i3vm"
+function install_i3 {
+  echo "Using .i3 folder as iterm configuration"
+  if ! check_executable 'i3' ; then
+    return 1
+  fi
+  link_to_home 'config/i3'
+}
+
 append_help "all" "Runs all the above."
 function install_all {
   echo "Installing all."
@@ -177,6 +188,7 @@ function install_all {
   install_fonts
   install_tmux
   install_git
+  install_i3
 }
 
 function os_opts {
@@ -217,6 +229,9 @@ case "$1" in
     ;;
   'iterm')
     install_iterm
+    ;;
+  'i3')
+    install_i3
     ;;
   'all')
     install_all
