@@ -7,3 +7,6 @@ Type=forking
 RemainAfterExit=yes
 ExecStart=/usr/bin/tmux -f $h/.config/tmux/config start-server
 ExecStop=/usr/bin/tmux kill-server
+
+[Install]
+WantedBy=multi-user.target

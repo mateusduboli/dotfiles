@@ -1,6 +1,5 @@
 #!/bin/bash
 #vim:et:sw=2
-set -eo
 BASE=$(realpath $(dirname $0))
 source ${BASE}/setup.cfg
 
