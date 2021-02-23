@@ -1,9 +1,36 @@
 #!/bin/bash
 #vim:et:sw=2
+REQUIRED_COMMANDS=(realpath curl git)
+
+function check_executable {
+  local COMMAND=$1
+
+  which "$COMMAND" &> /dev/null
+  if [[ $? == 0 ]]; then
+    return 0
+  else
+    echo "Executable required is not installed: $COMMAND."
+    return 1
+  fi
+}
+
+result=0
+message=""
+for CMD in ${REQUIRED_COMMANDS[@]}; do
+  message="$( check_executable ${CMD} )\n"
+  let "result += $?"
+done
+
+if [[ "${result}" -ne '0' ]]; then
+  printf "$message"
+  exit 1
+fi
+
 BASE=$(realpath $(dirname $0))
 source ${BASE}/setup.cfg
 
 HELP="Commands\n"
+
 
 function append_help {
   COMMAND="$1"
@@ -60,19 +87,6 @@ function link_to_home {
   ln "$LN_OPTS" "$SRC" "$DST"
 }
 
-function check_executable {
-  local COMMAND=$1
-
-  echo "Checking $COMMAND"
-  which "$COMMAND" &> /dev/null
-  if [[ $? == 0 ]]; then
-    return 0
-  else
-    echo "First install $COMMAND."
-    return 1
-  fi
-}
-
 append_help "zsh" "Installs antigen and link my custom folder."
 function install_zsh {
   if check_executable 'zsh'; then
@@ -87,22 +101,17 @@ function install_zsh {
   fi
 }
 
-append_help "nvim-plugged" "Installs nvim-plugged and the plugins"
-function install_nvim_plugged {
-  if [[ ! -f "$VIM_PLUG_FILE" ]]; then
-    curl -fLo "$VIM_PLUG_FILE" --create-dirs "$VIM_PLUG_URL"
-    echo "vim-plug installed."
-  else
-    echo "vim-plug already installed."
-  fi
-  nvim +PlugInstall +qa
-}
-
 append_help "nvim" "Checks for nvim installation, link the config folders and install nvim-plugged"
 function install_nvim {
   if check_executable 'nvim'; then
     link_to_config 'nvim'
-    install_nvim_plugged
+    if [[ ! -f "$VIM_PLUG_FILE" ]]; then
+      curl -fLo "$VIM_PLUG_FILE" --create-dirs "$VIM_PLUG_URL"
+      echo "vim-plug installed."
+    else
+      echo "vim-plug already installed."
+    fi
+    nvim +PlugInstall +qa
   fi
 }
 
@@ -215,7 +224,6 @@ append_help "all" "Runs all the above."
 function install_all {
   echo "Installing all."
   install_zsh
-  install_nvim_plugged
   install_nvim
   install_fonts
   install_tmux
@@ -250,9 +258,6 @@ case "$1" in
     ;;
   'nvim')
     install_nvim
-    ;;
-  'nvim-plugged')
-    install_nvim_plugged
     ;;
   'fonts')
     install_fonts
