@@ -66,5 +66,6 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'puppetlabs/puppet-syntax-vim'
 Plug 'hashivim/vim-terraform'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 call plug#end()
