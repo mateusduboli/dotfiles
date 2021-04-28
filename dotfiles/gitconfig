@@ -42,6 +42,7 @@
 	autocrlf = input
 	editor = nvim
 	pager = less -RXF
+	excludesfile = ~/.gitignore
 
 [includeIf "gitdir:~/Code/Booking/"]
 	path = ~/.gitconfig.booking

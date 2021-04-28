@@ -151,6 +151,7 @@ append_help "git" "Links my gitconfig."
 function install_git {
   if check_executable 'git' ; then
     link_to_home 'gitconfig'
+    link_to_home 'gitignore'
     link_to_home 'git-commit-template.txt'
   fi
 }
