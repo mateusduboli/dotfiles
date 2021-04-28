@@ -43,7 +43,7 @@
 	editor = nvim
 	pager = less -RXF
 
-[includeIf "gitdir:~/Dev/Booking/"]
+[includeIf "gitdir:~/Code/Booking/"]
 	path = ~/.gitconfig.booking
 
 [include]
