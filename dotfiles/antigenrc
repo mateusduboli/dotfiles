@@ -12,7 +12,7 @@ antigen bundle trapd00r/zsh-syntax-highlighting-filetypes
 antigen bundle marzocchi/zsh-notify
 
 antigen bundle mafredri/zsh-async
-antigen bundle sindresorhus/pure
+antigen bundle sindresorhus/pure@main
 
 antigen bundle common-aliases
 antigen bundle cp
@@ -51,6 +51,6 @@ antigen bundle lein
 # Kubernetes
 antigen bundle kubectl
 
-antigen bundle /home/mdubielaoliv/Dev/Personal/dotfiles/dotfiles/zsh/plugins/mateusduboli --no-local-clone
+antigen bundle $HOME/.zsh/plugins/mateusduboli --no-local-clone
 
 antigen apply
