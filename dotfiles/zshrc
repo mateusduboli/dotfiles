@@ -20,3 +20,8 @@ if [ -f '/Users/mateus/Applications/google-cloud-sdk/path.zsh.inc' ]; then . '/U
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/mateus/Applications/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/mateus/Applications/google-cloud-sdk/completion.zsh.inc'; fi
+
+if which pyenv 2>&1 >/dev/null; then
+   eval "$(pyenv init --path)"
+fi
+
