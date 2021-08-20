@@ -49,3 +49,7 @@
 
 [include]
 	path = ~/.gitconfig.local
+[color]
+	diff = auto
+	status = auto
+	branch = auto
