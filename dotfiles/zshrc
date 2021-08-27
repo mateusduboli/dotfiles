@@ -24,4 +24,3 @@ if [ -f '/Users/mateus/Applications/google-cloud-sdk/completion.zsh.inc' ]; then
 if which pyenv 2>&1 >/dev/null; then
    eval "$(pyenv init --path)"
 fi
-
