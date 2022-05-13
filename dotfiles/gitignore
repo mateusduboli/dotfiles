@@ -1,7 +1,5 @@
 .vscode
 .idea
 *.iml
-*.calva
-lsp/
 *.log
 .DS_Store
