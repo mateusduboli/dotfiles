@@ -1,5 +1,9 @@
-.vscode
-.idea
+*.calva
 *.iml
 *.log
 .DS_Store
+.clj-kondo/.cache
+.lsp/.cache
+lsp/
+.idea
+.vscode
