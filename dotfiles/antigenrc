@@ -1,6 +1,6 @@
 antigen use oh-my-zsh
 
-antigen bundle zdharma/fast-syntax-highlighting
+antigen bundle zdharma/fast-syntax-highlighting@main
 antigen bundle unixorn/autoupdate-antigen.zshplugin
 antigen bundle oldratlee/hacker-quotes
 antigen bundle zsh-users/zsh-completions
