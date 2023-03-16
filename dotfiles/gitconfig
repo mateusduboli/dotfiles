@@ -3,15 +3,21 @@
 	email = mateusduboli@gmail.com
 	name = Mateus Dubiela Oliveira
 
-[merge]
-	tool = nvim
-
 [mergetool]
 	keepBackup = false
 	prompt = true
 
-[mergetool "nvim"]
-	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[merge]
+    tool = vscode
+
+[mergetool "vscode"]
+    cmd = code --wait $MERGED
+
+[diff]
+    tool = vscode
+
+[difftool "vscode"]
+    cmd = code --wait --diff $LOCAL $REMOTE
 
 [push]
 	default = current
