@@ -22,7 +22,6 @@ antigen bundle fzf
 antigen bundle git
 antigen bundle gitfast
 antigen bundle git-extras
-antigen bundle git-flow
 # Node
 antigen bundle bower
 antigen bundle npm
