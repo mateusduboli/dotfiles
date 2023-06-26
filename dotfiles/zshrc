@@ -13,4 +13,6 @@ done
 
 test -e "${HOME}/.zshrc.local" && source "$HOME/.zshrc.local" # local environment configuration
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+if [[ "$TERM_PROGRAM" != "WarpTerminal" ]]; then
+  test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+fi
