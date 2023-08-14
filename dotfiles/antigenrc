@@ -11,7 +11,7 @@ antigen bundle MikeDacre/cdbk
 antigen bundle trapd00r/zsh-syntax-highlighting-filetypes
 antigen bundle marzocchi/zsh-notify
 
-antigen bundle mafredri/zsh-async
+antigen bundle mafredri/zsh-async@main
 antigen bundle sindresorhus/pure@main
 
 antigen bundle common-aliases

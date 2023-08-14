@@ -11,6 +11,8 @@ for script in $ZSH_HOME/*.zsh; do
   source $script
 done
 
+append_path "/usr/local/sbin"
+
 test -e "${HOME}/.zshrc.local" && source "$HOME/.zshrc.local" # local environment configuration
 
 if [[ "$TERM_PROGRAM" != "WarpTerminal" ]]; then
