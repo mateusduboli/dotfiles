@@ -127,7 +127,7 @@ function install_fonts {
 function install_fonts_osx {
   IFS=$(printf '\t\n\r')
   for FONT in $FONT_SRC/*; do
-    FONT=$(basename $FONT)
+    FONT="$(basename $FONT)"
     cp "$FONT_SRC/$FONT" "$FONT_DST/$FONT"
   done
 }
@@ -221,6 +221,29 @@ function install_i3 {
   link_to_home 'config/i3'
 }
 
+append_help "doom-emacs" "Links and install doom emacs"
+function install_doom_emacs {
+  echo "Checking dependencies"
+  if ! ( check_executable 'git' && check_executable 'rg' && check_executable 'emacs' ) ; then
+    return 1
+  fi
+  if [ ! -d "${EMACS_CONFIG_DIR}" ]; then
+    echo "Installing doom-emacs on "
+    git clone --depth 1 "${DOOM_EMACS_URL}" "${EMACS_CONFIG_DIR}"
+  else
+    echo "Emacs configuration already exists in ${EMACS_CONFIG_DIR}"
+  fi
+
+  if [ "$OS_NAME" = "osx" ] ; then
+    if [ ! -e "${DESKTOP_SRC}/org.emacs-daemon.plist" ]; then
+      echo "Installing emacs-daemon to startup"
+      ln -s "${DESKTOP_SRC}/org.emacs-daemon.plist" "${LAUNCHCTL_USER_DIR}"
+    fi
+    launchctl load -F "${LAUNCHCTL_USER_DIR}/org.emacs-daemon.plist"
+  fi
+  # ~/.config/emacs/bin/doom install
+}
+
 append_help "all" "Runs all the above."
 function install_all {
   echo "Installing all."
@@ -277,6 +300,9 @@ case "$1" in
     ;;
   'i3')
     install_i3
+    ;;
+  'doom-emacs')
+    install_doom_emacs
     ;;
   'all')
     install_all
