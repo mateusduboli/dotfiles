@@ -21,6 +21,7 @@
 
 [push]
 	default = current
+	autoSetupRemote = true
 
 [branch]
 	autosetuprebase = always
@@ -61,5 +62,3 @@
 	process = git-lfs filter-process --skip
 	clean = git-lfs clean -- %f
 	required = True
-[includeIf "gitdir:/Users/mateus.dubiela/dev/nu/"]
-	path = /Users/mateus.dubiela/.nugitconfig
