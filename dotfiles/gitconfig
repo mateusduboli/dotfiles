@@ -58,7 +58,7 @@
 	status = auto
 	branch = auto
 [filter "lfs"]
-	smudge = git-lfs smudge --skip %f
-	process = git-lfs filter-process --skip
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
 	clean = git-lfs clean -- %f
 	required = True
